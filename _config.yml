@@ -10,10 +10,10 @@ locale                   : "en-US"
 title                    : "About"
 title_separator          : "-"
 name                     : &name "Yihao"
-description              : &description "personal description"
+description              : &description "CS PhD student in NTU"
 url                      : "yihao001.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "yihao001.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
