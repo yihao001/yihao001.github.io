@@ -11,7 +11,7 @@ title                    : "About"
 title_separator          : "-"
 name                     : &name "Yihao"
 description              : &description "CS PhD student in NTU"
-url                      : "yihao001.github.io"
+url                      : https://yihao001.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "yihao001.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -32,7 +32,7 @@ comments:
     colorscheme          : # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
-  branch                 : "gh-pages" # "master", "gh-pages"
+  branch                 : "master" # "master", "gh-pages"
   commitMessage          : "New comment."
   filename               : comment-{@timestamp}
   format                 : "yml"
