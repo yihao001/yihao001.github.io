@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/sunblind.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- Slide 1 -->
+				<section data-transition="none">
+
+					<h3>Lab 5: OO Implementation in C++</h3>
+
+					<img src="https://www.improgrammer.net/wp-content/uploads/2018/11/C-is-a-beautiful-language.jpg"></img>
+
+					<aside class="notes">
+						Errors in C++ can be a little cryptic...
+					</aside>
+
+				</section>
+
+				<!-- Slide 2:0 -->
+				<section data-transition="none">
+					<section data-transition="none">
+						
+					<h3>5 key learning points in Lab 5</h3>
+
+					<p></p>
+
+					<ol>
+						<li class='fragment'>Write a class in C++ (<b>destructor</b>, overloading)</li>
+						<li class='fragment'>Inheritance in C++ (overridding, <b>pure method</b>)</li>
+						<li class='fragment'>Polymophism in C++ (<b>virtual, pointers and references</b>)</li>
+						<li class='fragment'>Putting everything together into an array of objects (again!)</li>
+						<li class='fragment'>Separting into header <b>(.h)</b> and implementation <b>(.cpp)</b> files</li>
+					</ol>
+						
+					<aside class="notes">
+						New stuff in this lab are highlighted in bold.
+					</aside>
+
+					</section>
+
+					<!-- Slide 2:1 -->
+
+					<section data-transition="none" style="text-align: left;">
+
+						<h3>1. Write a class in C++</h3>
+
+						New concept: <b>Destructor</b> 🗑️
+
+						<pre><code data-trim data-noescape data-line-numbers="1">
+							~Animal() {
+								cout << "destructing Animal object "<< _name << endl ;
+							}
+						</code></pre>
+
+						<p class='fragment'>
+						Q: Why are destructors needed in C++? <br>
+
+							C++ does not have in-built garbage collection (there are <a href="https://stackoverflow.com/questions/81062/garbage-collection-libraries-in-c">external</a> ones), so some manual memory management is needed. But there are also <a href="https://docs.microsoft.com/en-us/cpp/cpp/smart-pointers-modern-cpp?view=vs-2019">smart pointers</a> now. 
+						</p>
+						<p class='fragment'>
+						Q: Why doesn't C++ use garbage collectors? (GC works well in Java!) <br>
+
+							It's <a href="https://softwareengineering.stackexchange.com/a/113319">complicated</a>, but tl;dr - C/C++ is a little too low level for GC to work well (+ remember that C/C++ is also meant to work on extremely low-resource settings - even a simple GC will create too much overhead)
+						</p>
+						<aside class="notes">
+							"Ensures that the allocated memory is released"
+							<br>
+							Recall the feedback in Lab 1 where I mentioned about developing good habits like being aware about memory management!
+						</aside>
+
+					</section>
+
+					<!-- Slide 2:2 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>2. Inheritance in C++</h3>
+
+						New concept: <b>Pure method</b>
+
+						<pre><code data-trim data-noescape data-line-numbers="4">
+							class Shape {
+								public :
+								Shape() { }
+								virtual void area() = 0 ;
+								// virtual void area() { cout << "undefined" << endl ;}
+								void name() { cout << " a shape" << endl ; }
+							};
+
+							class Rectangle : public Shape {
+								...
+								public :
+								Rectangle(int x, int y) : _length(x) , _height(y) { }
+								void area() { cout << "area is " << _length * _height << endl ; }
+							}
+						</code></pre>
+
+						Basically this creates an <b>abstract method</b> and the class becomes an <b>abstract class</b> too.
+
+						<p class='fragment'>
+						// Make sure you watch out for the function signatures when you define the sub-classes - they 
+						<a href='https://stackoverflow.com/questions/9488168/virtual-function-const-vs-virtual-function-non-const'>should be the same</a>!
+						(i.e. if there is a `const` in your method in the superclass, it should be in your sub-class too)
+						</p>
+
+						<aside class="notes">
+							"the class becomes an abstract class"
+						</aside>
+						
+					</section>
+
+					<!-- Slide 2:3 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>3. Polymophism in C++</h3>
+
+						New concept: <b>virtual</b>
+
+						<pre><code data-trim data-noescape>
+							int main() {
+								Rectangle rect(10,20);
+								Shape *shapePtr = &rect ;
+								Shape &shapeRef = rect ;
+								Shape shapeVal = rect ;
+								
+								shapePtr->area() ;
+								shapeRef.area() ;
+								shapeVal.area() ;
+							}
+						</code></pre>
+
+						What adding the keyword <b>virtual</b> does: "force method evaluation to be based on object type rather than reference type"
+
+						<p class='fragment'>
+							Without <b>virtual</b>, all 3 lines will print the same thing <br> (i.e. "undefined")
+						</p>
+
+						<p class='fragment'>
+							More about pointers and references <a href="https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.html">here</a> (section 2.4).
+						</p>
+
+						<aside class="notes">
+							Refer to the code in the previous slide too (comment out the pure method and uncomment the commented line). 
+							Basically, it will output 200, 200 and "undefined" (a str printed from the area() method in Shape, not like really undefined/error).
+							The key takeaway is with virtual, you will see this polymorphic behaviour. Without it, you won't see (all will print "undefined").
+						</aside>
+
+					
+					</section>
+
+					<!-- Slide 2:4 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>4. Array of Objects (build a zoo)</h3>
+
+						Keep things simple:
+
+						<p></p>
+						
+						<ul>
+							<li class='fragment'>Having an array of 3 objects (🐶,😸,🦁) is fine, if you want to have more that's fine too as long as you don't run into any errors</li>
+							<li class='fragment'>You need to initialize your arrays (e.g. 0 or Mammal object) so that you don't run into issues (like uninitialized values) when iterating through the loop when the Zoo is not full 🙈</li>
+							<li class='fragment'>Sending an animal to the zoo will then mean that you're replacing the value of the existing (null) value / object in the array</li>
+							<li class='fragment'>Remember to free the animals at the end (i.e. delete the objects and <b>free up memory</b>)</li>
+						</ul>
+
+					</section>
+
+					<!-- Slide 2:5 -->
+					
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>5. Header and Impelmentation</h3>
+
+						(abstraction!)
+						<p></p>
+						Many different ways to do it, so it's up to you
+						<p></p>
+						Try to at least have animal.h, childAnimal.h, ZooMain.cpp
+						<p></p>
+						(But it's cleaner to have animal.cpp and childAnimal.cpp too)
+
+						<aside class="notes">
+							Recall what we talked about when discussing about Abstraction / Encapsulation in Lab 4!
+						</aside>
+					</section>
+
+					<section data-transition="none" style="text-align: left;">
+
+						<h3>More scaffolds</h3>
+
+						<ul>
+							<li>Not in lab and Visual Studio takes up too much space? <a href='https://www.eclipse.org/downloads/packages/'>Eclipse</a> works, <a href="https://www3.ntu.edu.sg/home/ehchua/programming/howto/CodeBlocks_HowTo.html">CodeBlocks</a> too or even <a href="https://code.visualstudio.com/docs/cpp/config-clang-mac">VSCode</a> (weird errors though)</li>
+							<li><a href="https://stackoverflow.com/a/2650192">Recap</a> about the difference between compiling, linking and building</li>
+							<li>You might need to have <b>#include guards</b>. Here's <a href="https://stackoverflow.com/a/8020211">how it works</a>.</li>
+							<li>Destructors <a href="https://stackoverflow.com/questions/7403883/derived-class-with-non-virtual-destructor">can be virtual</a> too, some IDEs might warn but it's fine</li>
+							<li>You'll face issues printing the value stored in the <b>enum</b> - here's <a href="http://aantron.github.io/better-enums/">one way</a> to solve it and here are <a href="https://stackoverflow.com/questions/28828957/enum-to-string-in-modern-c11-c14-c17-and-future-c20/31362042#31362042">more ways</a> to solve it. But you can fix it with switch statements too.</li>
+						</ul>
+
+					</section>
+
+				</section>
+
+				<section data-transition="none" data-background-color="rgb(207, 255, 229, 0.5)">
+					
+					<h1>Lab 5 Deliverables</h1>
+
+					Submit <b>1 .zip file</b> to NTULearn (under ‘Assignments’)
+
+					<p></p>
+
+					<ul>
+						<li>Your zip file should contain both <strong> .h and .cpp files</strong></li>
+
+							<ul>
+								<li>Depending on how you separated them you might have different number of files</li>
+								<li>You should have the main function in ZooMain.cpp</li>
+							</ul>
+
+						<li>Follow the filename convention specified on NTULearn</li>
+						<li>Please submit it <b>within 2 weeks from this lab</b>!</li>
+						<ul>
+							<li>And... you're done (with the labs)!</li>
+							<li>Hope you've learnt a lot :)</li>
+						</ul>
+					</ul>
+
+					<p></p>
+					🎉
+
+					</section>
+
+				</section>
+
+				
+				<section data-transition="none">
+					
+					<h2>Take-home Messages 🏠 </h2>	
+
+					<ul>
+						<li class='fragment'>Knowing the <b>best tool for the job</b> makes you very valuable in the industry - be a jack of many trades (know the masters), master of one </li>
+						<li class='fragment'>IRL, people use a <b>mix of paradigms</b> (depending on the team too)</li>
+						<li class='fragment'>Over time, you should also develop the ability to break down a big task into smaller parts that are <b>reusable and extensible</b></li>
+						<!-- Harder than it sounds - this is something that comes with experience -->
+						<li class='fragment'>OOP is done at a higher level of abstraction + attributes & methods are tightly coupled - use when objects are the best representation</li>
+						<ul>
+							<li class='fragment'>OOP principles are not unique, but inheritance is hard to achieve without OOP (i.e. if the task can be modelled nicely with a hierarchy of classes, OOP is probably the right tool) </li>
+							<li class='fragment'>The next few mods in your SCSE journey goes higher <br> (unless you're in CE, where it goes lower 🤖)</li>
+						</ul>
+
+					</ul>
+
+					<p class='fragment'>
+						Finally, here's a <a href="https://yihao001.github.io/teaching/2020-CZ2002">deeper investigation</a> into the lab materials.
+					</p>
+
+				</section>
+				
+				<section data-transition="none">
+
+					<h2>The road ahead 🛣️</h2>
+
+					<ul>
+						<li class='fragment'>Teamwork is key to do well in CS - learn to lead / be a team player</li>
+						<!-- Know your + your teammates strengths, set feasible goals -->
+						<li class='fragment'>Keep a concise set of notes (esp DS&A) that you can quickly refer to</li>
+						<ul>
+							<li class='fragment'>You need to show mastery - no time to google / debug during tests</li>
+							<!-- I mean coding tests during interviews -->
+						</ul>
+						<li class='fragment'>Besides mastering what has been taught, be aware about what hasn't been taught (e.g. app development, kernel programming, data viz)</li>
+						<!-- You'll see more especially during exchange  -->
+						<ul>
+							<li class='fragment'>The <a href="https://missing.csail.mit.edu/">Missing Semester</a> of Your CS Education, e.g. <a href="http://www.markdowntutorial.com/lesson/1/">Markdown</a></li>
+						</ul>
+						<li class='fragment'>Even within CS, there are huge variations in terms of content type</li>
+						<ul>
+							<li class='fragment'>Cybersec, external certs, very technical, experience-heavy</li>
+							<li class='fragment'>ML, math heavy, need own effort to explore ; research / intern exp</li>
+							<li class='fragment'>SE, arbitrary, should have portfolio of works (your own website!)</li>
+						</ul>
+						<!-- If you are still unsure, do what you are good at, or what you are interested in. 
+						It sounds simple, but it is really effective on hindsight. -->
+						<li class='fragment'>The earlier you figure out what you want to do, the better you can prepare / read ahead and you'll naturally do better. Do internships.</li>
+						<li class='fragment'>When others give you advice, rmb that they don't know your b/g.</li>
+
+					</ul>
+				
+				</section>
+
+				<section data-transition="none">
+
+					<h1>References used</h1>
+
+					This set of slides is made using <a href="https://revealjs.com/">reveal.js</a>. 
+					It's really easy to make a basic set of slides (just HTML) and you can consider using it for <b>simple</b> (tech) presentations!
+					For more advanced customization, you do need CSS and JS but scripts can be easily googled for and it has <a href="https://github.com/hakimel/reveal.js/">good documentation</a>.
+					<p></p>
+					<a href="https://www.improgrammer.net/c-programmers-humor/">Slide 1 image</a> | Code snippets are from lecture notes
+					<p></p>
+
+					<a href="https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp3_OOP.html">Here's</a> even more info about OOP in C++
+
+					<p></p>
+
+					Please read ahead about <a href="https://www.tutorialspoint.com/design_pattern/index.htm">design patterns</a> (implement them) <br>especially if you're interested in software engineering <br> and especially if you're not, since it's covered (to varying extents) in CZ2006/3002/3003/3007 and it takes time to internalize.
+
+					<p></p>
+
+					All the best! :)
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
