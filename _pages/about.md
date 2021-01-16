@@ -12,6 +12,8 @@ I’m Yihao, a 2nd year PhD student in Nanyang Technological University, Singapo
 
 My research interests are within the intersection of Computer Science and Neuroscience, specifically Multiview Representation Learning and Multimodal Neuroimaging Analysis. My key interest is to contribute towards a better understanding of structure-function relationships in the human brain. I also hope that the methods developed from my research will have wide ranging applications beyond neuroscience.
 
+<!-- Beyond academic interests, I like going for random walks, attending concerts and engaging in some futures thinking. I like putting ideas together (especially from different disciplines) and I do have a habit of summarizing what I've observed and learnt - that's why this blog exists today!  -->
+
 ## Recent Updates
 
 - **Oct 2020**: Presented our paper on SPOTS (brain state classification) at the Machine Learning in Clinical Neuroimaging workshop (held in conjunction with MICCAI)
