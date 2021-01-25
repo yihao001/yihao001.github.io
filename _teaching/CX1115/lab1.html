@@ -1,0 +1,343 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Lab 1</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/sunblind.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+		#qrtable td 
+		{
+			text-align: center; 
+			vertical-align: middle;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- Slide 0 -->
+				<section data-transition="none">
+
+					<h3>CX1115 Lab 1: Data Acquisition</h3>
+
+					<a href="https://www.explainxkcd.com/wiki/index.php/1831:_Here_to_Help"><img src="https://imgs.xkcd.com/comics/here_to_help_2x.png"></img></a>
+
+					(models are cool, but many other things are also important)
+
+					<aside class="notes">
+						Data Science is much more than just modelling. 
+					</aside>
+
+				</section>
+
+				<!-- Slide 1 -->
+				<section data-transition="none">
+
+					<h3>Some admin matters</h3>
+
+					<ul>
+						<li>We will begin around 8.35am - please try to come on time</li>
+						<!-- Rainy mornings later -->
+						<li>Briefing: scaffolding for labs + extra stuff + experience sharing</li>
+						<!-- We have a range of students, so there's content catered for both ends! -->
+						<li>Main aim is to give you time to code and gain practical experience</li>
+						<!-- Learn the theory and make sure you have hands-on experience. There's little point doing only one of them. -->
+						<!-- If you want to do a DS intern/job, make sure you continue practicing (e.g. side projects, else will forget) -->
+						<!-- Theory can be simple at times, but you'll find yourself spending time on other practical aspects (version incompat, weird bugs) -->
+						<li>Expectations: It's an <b>introductory</b> course, so the main content covers the basics. If it's too simple, feel free to work on the extra stuff (optional, only if you're done with the basics). </li>
+						<li>Let me know what you want to learn from the lab sessions: <a href="https://forms.gle/VJpwE6R53AFKiv7GA">https://forms.gle/VJpwE6R53AFKiv7GA</a></li>
+						<!-- So that I know what y'all want to pick up from the lab sessions, also a feedback channel -->
+						
+					</ul>
+					
+					<table id='qrtable'>
+						<thead><tr>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr></thead>
+						<tbody><tr>
+							<td>Survey</td>
+							<td><a href="https://forms.gle/VJpwE6R53AFKiv7GA"><img src="/images/CX1115/survey_lab1.png" width='150' height='150'></img></a></td>
+							<td></td>
+							<td><a href="https://yihao001.github.io/teaching/CX1115/lab1/index.html"><img src="/images/CX1115/slides_lab1.png" width='150' height='150'></img></a></td>
+							<td>Slides</td>
+						</tr></tbody>
+					</table>
+
+					<aside class="notes">
+					</aside>
+
+				</section>
+
+				<section data-transition="none" style="text-align: left;">
+
+					<h3>Overview 🗺️</h3>
+
+					(Business) Problem → <b>Data Acquisition</b> → Data Cleaning → Visualisation → Modelling → Reporting → <em>Deployment</em> → <em>Scaling up</em>
+
+					<hr>
+
+					Two main approaches: <br>
+
+					<ol>
+						<li>Hypothesis-driven data exploration: Collect the relevant data after determining an hypothesis (from domain knowledge / experience)</li>
+						<li>Quite often, companies just have datasets lying around and your boss wants to see what insights we can get</li>
+					</ol>
+
+					<p>
+
+					The former is generally better (when you collect the data, there's more scope for controlling data quality); 
+					the latter might be useful if the data indeed has some gems to unmine but it's harder to clean
+
+					<aside class="notes">
+
+						Last 2 not really covered, will briefly mention under extra stuff over the semester
+
+					</aside>
+
+				</section>
+
+				<!-- Slide 2:0 -->
+				<section data-transition="none">
+					<section data-transition="none">
+						
+					<h3>3 key learning points in Lab 1</h3>
+
+					<p></p>
+
+					<ol>
+						<li class=''>Jupyter (check out JupyterLab too)</li>
+						<li class=''>Basic data exploration: `.describe()`, `.info()`</li>
+						<li class=''>Data acquisition (web scraping)</li>
+					</ol>
+						
+					<aside class="notes">
+						See website for more supplementary points. https://yihao001.github.io/teaching/AY2021-S2-CX1115
+					</aside>
+
+					</section>
+
+					<!-- Slide 2:1 -->
+
+					<section data-transition="none" style="text-align: left;">
+
+						<h3>1. Jupyter</h3>
+
+						<p>
+						Pros
+						<ul class='fragment'>
+							 <li>Interactive, instant feedback -> good for individual exploratory work</li>
+							 <!-- Don't have to keep re-runing the Python script to try different inputs -->
+							 <li>Presents text and plots together -> good for presenting, if content flows linearly</li>
+						</ul>
+						</p>
+
+						<p>
+						Cons
+						<ul class='fragment'>
+							<li>Easy to mess up if you accidentally reuse variables, especially for long notebooks (or go up and down when editing)</li>
+							<!-- You'll likely have to go back and forth your code, very high chance of creating bugs-->
+							<li>Hard to check diff with Git (can convert, but that's extra work!)</li>
+					   </ul>
+						</p>
+
+						<p>
+						Takeaways
+						<ul class='fragment'>
+						<li>Disciplined usage - individual exploration or reporting (or teaching!)</li>
+						<li>For anything else, create / convert to .py or .txt (e.g. nbconvert, jupytext)</li>
+						</ul>
+						<!-- - NOT for long term collaborative usage  -->
+						</p>
+
+						<aside class="notes">
+							Shift + Enter to run the current cell, select below
+							Ctrl + Enter to run selected cells
+							Alt + Enter to run the cell and insert a blank cell below 
+
+							Remember to demo, but most will already know some basics. Add shortcut slide. 
+
+							JupyterLab
+						</aside>
+
+					</section>
+
+					<!-- Slide 2:2 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>2. Basic data exploration</h3>
+
+						<pre><code data-line-numbers data-trim data-noescape>
+							
+							import pandas as pd
+							df = pd.DataFrame(data)
+							df.info()
+							df.describe()
+							df.head() # .tail()
+
+						</code></pre>
+						
+						<p class='fragment'>
+						Watch out for the default parameters used by the functions, e.g. what's the default delimiter of `pd.read_csv()`?
+						</p>
+						<ul class='fragment'>
+							<li>Choose delimiters wisely, if possible. Many datasets contain characters used as delimiters (e.g. `,`)</li>
+							<li>One way to deal with it is to set `quote_char`, another way is to use obscure characters like `|`</li>
+						</ul>
+						<br>
+						<p class='fragment'>
+						Also watch out for subtle behaviors: e.g. Pandas infers the columns' data type if you don't specify them. It's not always correct - especially dangerous if it's a Categorical variable but inferred as a Numeric. 
+						</p>
+
+						<aside class="notes">
+							
+						</aside>
+						
+					</section>
+
+					<!-- Slide 2:3 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>3. Data acquisition</h3>
+
+						<pre><code data-line-numbers data-trim data-noescape>
+
+							import pandas as pd
+							df = pd.read_html(html_code) # returns a list
+							
+						</code></pre>
+
+						<p class='fragment'>
+							You will need to set some parameters in `read_html()`
+						</p>
+
+						<p class='fragment'>
+							This seem very simple, but it's hiding an enormous amount of complexity + it only covers a small part of web scraping (Wiki is a static site). Check out the slides after this!
+						</p>
+
+						<p class='fragment'>
+							If you scrape data at a larger scale, remember to adopt an Agile approach. 
+						</p>
+
+						<aside class="notes">
+
+							Should always start small and iterate quickly (i.e. even with a dataset of millions of records, you don’t have to use the whole thing right at the start. It’s faster to just get a subset of it, do a quick experiment to see if your hypothesis makes sense. If you try to acquire and clean all your data from the start, by the time you build your model and realise that it won’t work (e.g. ill-posed problem or what we want to find isn’t extractable from the data), you’d have wasted weeks / months. 
+							
+						</aside>
+					
+					</section> 
+
+				</section> 
+
+				<section data-transition="none" data-background-color="rgb(19, 205, 229, 0.3)">
+					
+					<h1>Lab 1 Deliverables</h1>
+
+					None! Just make sure you go through the materials. :)
+
+					</section>
+
+				</section>
+
+				
+				<section data-transition="none" data-background-color="rgb(107, 255, 209, 0.3)", style="text-align: left;">
+					
+					<h3>Web scraping, in greater detail</h3>
+
+					Much more than just `pd.read_table()`.
+
+					<ul>
+						<li>Actual web scraping is slightly more complicated <br>(need to know some HTML, regex is useful)</li>
+						<li>Static sites vs Dynamic sites</li>
+						<li>Retrieving (text from) images and PDF files</li>
+						<li>Web scrapers break when website changes, pretty much no simple workaround for major changes besides modifying the code</li>
+						<li>Refer to <a href="https://docs.google.com/presentation/d/1Va8ZM-k39cyYE7lnd1FYzLhEoG_kFz4CzEmawrZWHqE/edit?usp=sharing">this set of slides</a> for more</li>
+					</ul>
+
+					<aside class="notes">
+						Still need to convert unstructured data to structured forms for further analysis
+					</aside>
+
+				</section>
+
+				
+				<section data-transition="none">
+
+					<h2>One more thing!</h2>
+					<!-- To get you started on the right footing! -->
+
+					<ul>
+						<li class='fragment'>If you want to be a data scientist, make sure you have a <b>specific domain</b> you're interested in (e.g. finance, healthcare). Data science is a generic skill - to create useful insights, you need domain knowledge</li>
+						<ul>
+							<li class='fragment'>One way to get that is via internships! If you want to do a DS intern, make sure you have a piece of work to talk about (coursework, or personal project)</li>
+							<!-- Relevant to the internship topic of course! -->
+							<li class='fragment'>Try to do at least 2 internships (be it same or different industries)</li>
+						</ul>
+						
+					</ul>
+				
+				</section>
+
+				<section data-transition="none">
+
+					<h1>References</h1>
+
+					This set of slides is made using <a href="https://revealjs.com/">reveal.js</a>. 
+					It's really easy to make a basic set of slides (just HTML) and you can consider using it for <b>simple</b> (tech) presentations!
+					For more advanced customization, you do need CSS and JS but scripts can be easily googled for and it has <a href="https://github.com/hakimel/reveal.js/">good documentation</a>.
+					
+					<p>
+
+					There are also more alternatives <a href="https://github.com/robbie-cao/awesome-slides">here</a>.
+					
+					<p>
+					
+					An <a href="https://github.com/fastai/nbdev">alternative view</a> on Jupyter Notebooks.
+					
+					<p>
+
+					<a href="https://xkcd.com/1831/">Slide 1 image</a> 
+					
+					<p>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// showNotes: false, // 'separate-page',
+				pdfSeparateFragments: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			// Reveal.configure({ showNotes: true });
+
+		</script>
+	</body>
+</html>
