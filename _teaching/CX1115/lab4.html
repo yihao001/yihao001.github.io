@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Lab 4</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/sunblind.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+		#qrtable td 
+		{
+			text-align: center; 
+			vertical-align: middle;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- Slide 0 -->
+				<section data-transition="none">
+
+					<h3>CX1115 Lab 4: Linear Regression</h3>
+
+					<a href="https://www.explainxkcd.com/wiki/index.php/1725:_Linear_Regression"><img src="https://imgs.xkcd.com/comics/linear_regression_2x.png" width=111% height=111%></img></a>
+
+					<br>
+
+					<aside class="notes">
+						
+					</aside>
+
+				</section>
+
+				<!-- Slide 1 -->
+				<section data-transition="none">
+
+					<h3>Lab 3 Review!</h3>
+
+					<ul>
+						<li class=''>Plots for <b>categorical</b> variables and how to interpret them: <a href="https://seaborn.pydata.org/generated/seaborn.catplot.html">catplot</a> <br>
+							(strip/<em>swarm</em>; (enhanced) boxplot, violin; point, bar, <em>count</em>)</li>
+
+							<br>
+
+						<li class=''>Data exploration & cleaning functions: <br> 
+							<b>Views</b>: `.sample()`, <b>`.sort_values()`</b>, `.size()`, `.value_counts()`<br>
+							<b>More views</b>: `.groupby()`, `.unstack()`,`.set_index()`, `.reset_index()`<br>
+							<b>Dup</b>: `.unique()`, `.duplicated()` <br>
+							<b>NaN</b>: `.dropna()`, `.isnull()`, `.fill_na()`<br> 
+							<b>Clean</b>: `.rename()`, <b>`.apply(lambda)`</b>, `re.sub()`, <br>
+							<b>`.copy()`</b>
+						</li>
+
+						<br>
+
+						<li>Dealing with <a href="">categorical</a> variables via `.astype('category')` on Series objects: <b>This results in a different output when calling `.describe()`</b></li>
+					</ul>
+
+					<aside class="notes">
+
+						Take note of the stuff in bold!
+
+						When you set a col to be a categorical variable, the info you get from .describe() will be different 
+						(e.g. instead of the quartiles and mean, you'll get number of unique values, most frequent category, etc)
+
+					</aside>
+
+				</section>
+
+				<section data-transition="none" style="text-align: left;">
+
+					<h3>Overview 🗺️</h3>
+
+					(Business) Problem ↔ Data Acquisition ↔ Data Cleaning ↔ Data Exploration / Visualisation ↔ <b>Modelling ↔ Reporting</b> ↔ <em>Deployment</em>
+
+					<hr>
+
+					<br>
+
+					<ul class='fragment'>
+
+						<li>After doing some data exploration to familiarise ourselves with the data, we're ready to build a simple model!</li>
+
+						<br>
+
+						<li>Linear Regression models are used based on the assumption that the independent variables have a <b>linear</b> relationship with the dependent variable. This is not always true.</li>
+
+					</ul>
+
+					<p>
+
+					<aside class="notes">
+
+						There's also multivariate linear regression (multiple x) and non-linear forms of regression. 
+
+					</aside>
+
+				</section>
+
+				<!-- Slide 2:0 -->
+				<section data-transition="none">
+
+					<section data-transition="none">
+						
+					<h3>2 key learning points in Lab 4</h3>
+
+					<br>
+
+					<ol>
+						<li class=''>Split a dataset into train/test split via `train_test_split()`</li>
+
+							<br>
+
+						<li class=''>
+							
+							Build a linear regression model with sklearn, along with the Attributes and Functions for the model object: <br>
+								<b>Building</b> model: .fit(), <br>
+								<b>Checking</b> model: `.intercept_`, `.coef_`, <br>
+								<b>Using</b> model: .predict(), <br>
+								<b>Analysing</b> model: .score(), mean_squared_error()
+						
+						</li>
+						
+					</ol>
+						
+					<aside class="notes">
+
+						1. Fit the model to the training set -> this means that model will learn the best .coef_ and .intercept
+						2. Use the trained model to predict on the test set
+
+						We also learnt this syntax to choose rows: 
+						`pkmndata_pred = pkmndata[pkmndata["Name"].isin(["Charizard", "Snorlax", "Vivillon"])]`
+
+					</aside>
+
+					</section>
+
+					<!-- Slide 2:1 -->
+
+					<section data-transition="none" style="text-align: left;">
+
+						<h3>1. More about linear regression</h3>						
+
+						<p class='fragment'>
+							Assumptions
+						<ul class='fragment'>
+							 <li>Errors are independent of each other</li>
+							 <li>Errors follow a normal distribution</li>
+							 <li>Errors have constant variance (homoscedasticity)</li>
+						</ul>
+						</p>
+
+						<p class='fragment'>
+						Diagnostic Plots
+						<ul class='fragment'>
+							<li>The performance of regression-based model is contingent on the data’s adherence to the assumptions made</li>
+							<li><a href="https://data.library.virginia.edu/diagnostic-plots/">There are plots in R</a> (<a href="https://github.com/dynobo/lmdiag">Python here</a>) that can help you check if the assumptions are true. <a href="https://stats.stackexchange.com/questions/22800/what-are-the-dangers-of-violating-the-homoscedasticity-assumption-for-linear-reg">Here's what happens</a> if one of them isn't true</li>
+					   </ul>
+						</p>
+						
+						<aside class="notes">
+
+							Many, many, many other types of regression models.
+
+							The diagnostic plots are available in R. For Python, check this out: https://github.com/dynobo/lmdiag
+							Or this: https://robert-alvarez.github.io/2018-06-04-diagnostic_plots/
+							Or this: https://zhiyzuo.github.io/Linear-Regression-Diagnostic-in-Python/
+
+						</aside>
+
+					</section>
+
+					<!-- Slide 2:2 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>2. More about data splitting</h3>
+						
+						<p class='fragment'>
+
+							Imbalanced classes
+
+							<ul class='fragment'>
+								<li>If one class is much larger, you need to ensure that the test set follows the same ratio</li>
+								<li>Looking for `stratify` option in `train_test_split()`</li>
+							</ul>
+
+						</p>
+						
+						<p class='fragment'>
+
+							k-fold cross validation
+
+							<ul class='fragment'>
+							<li>If your dataset size is small and splitting to train/validation/test sets results in a very small dataset, you can consider perform cross validation instead</li>
+							<li>Check out <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html">sklearn.model_selection.KFold</a></li>
+							<li>Here's <a href="https://scikit-learn.org/stable/modules/cross_validation.html#k-fold">a visual guide</a></li>
+							</ul>
+
+						</p>
+
+						<aside class="notes">
+							
+						</aside>
+						
+					</section>
+
+				</section> 
+
+				<section data-transition="none" data-background-color="rgb(19, 205, 229, 0.3)">
+					
+					<h1>Lab 4 Deliverables</h1>
+
+					Check the 'Assignments' tab in the <b>lab's course site</b> on NTULearn.
+
+					<p><br>
+
+					Remember that <b>Lab 5 is graded too</b>!<br>
+					(and due 24 hours after the end of the Lab)
+
+				</section>
+
+				<section data-transition="none">
+
+					<h1>References</h1>
+
+					This set of slides is made using <a href="https://revealjs.com/">reveal.js</a>. 
+					It's really easy to make a basic set of slides (just HTML) and you can consider using it for <b>simple</b> (tech) presentations!
+					For more advanced customization, you do need CSS and JS but scripts can be easily googled for and it has <a href="https://github.com/hakimel/reveal.js/">good documentation</a>.
+					
+					<p>
+
+					There are also more alternatives <a href="https://github.com/robbie-cao/awesome-slides">here</a>.
+					
+					<p>
+
+					<a href="https://xkcd.com/1725/">Slide 1 image</a> 
+					
+					<p>
+
+				</section>
+
+				<section data-transition="none">
+
+					<h1>CX1115 Telegram Channel!</h1>
+
+					Some of the TAs have created this initiative to share with y'all interesting stuff (🤩) about DS/AI, join us <a href="https://t.me/joinchat/T-FNEKtghDErqllZ">here</a>! :) 
+					<br>
+					<a href="https://t.me/joinchat/T-FNEKtghDErqllZ"><img src="/images/CX1115/survey_lab1.png" width='200' height='200'></img></a>
+
+					<p>
+
+					<ul>
+						<li><b>NOT</b> the official announcement outlet for the course. <br> Those will still be sent through NTUlearn.</li>
+						<li>Non-lecture related stuff (e.g. competition, events, interesting articles, datasets, SOTA results linked to what you've learnt)</li>
+						<li>Fill up the poll to indicate your preferences on what should be shared <br>
+							(when it's released, end of the week)</li>
+
+					</ul>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// showNotes: false, // 'separate-page',
+				pdfSeparateFragments: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			// Reveal.configure({ showNotes: true });
+
+		</script>
+	</body>
+</html>
