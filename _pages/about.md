@@ -16,6 +16,7 @@ My research interests are within the intersection of Computer Science and Neuros
 
 ## Recent Updates
 
+- **Jan 2021**: Our Neurocomputing paper can be found [here](https://www.sciencedirect.com/science/article/abs/pii/S0925231221000977)
 - **Oct 2020**: Presented our paper on SPOTS (brain state classification) at the Machine Learning in Clinical Neuroimaging workshop (held in conjunction with MICCAI)
 - **Aug 2020**: Our paper on a customised architecture, Salient Patterns Over Time and Space (SPOTS), for brain state classification using task-fMRI scans, was accepted in MLCN
 - **Apr 2020**: Our paper on a node removal algorithm (LEAN + CLIP) for biomarker discovery via deep learning models was accepted in Neurocomputing
