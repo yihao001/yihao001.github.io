@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "About"
 title_separator          : "-"
 name                     : &name "Yihao"
-description              : &description "CS PhD student in NTU"
+description              : &description "CS PhD candidate in NTU"
 url                      : https://yihao001.github.io
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "yihao001/yihao001.github.io"

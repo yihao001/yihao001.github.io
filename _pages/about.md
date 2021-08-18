@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 <br>
-I’m Yihao, a 2nd year PhD student in Nanyang Technological University, Singapore. I’ve done my undergraduate degrees (Business and Computer Science) in NTU as well, with specializations in Business Analytics, Data Science & Analytics and Artificial Intelligence.
+I’m Yihao, a 3rd year PhD candidate in Nanyang Technological University, Singapore. I’ve done my undergraduate degrees (Business and Computer Science) in NTU as well, with specializations in Business Analytics, Data Science & Analytics and Artificial Intelligence.
 
 My research interests are within the intersection of Computer Science and Neuroscience, specifically Multiview Representation Learning and Multimodal Neuroimaging Analysis. My key interest is to contribute towards a better understanding of structure-function relationships in the human brain. I also hope that the methods developed from my research will have wide ranging applications beyond neuroscience.
 
