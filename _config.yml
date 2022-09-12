@@ -82,9 +82,9 @@ analytics:
 author:
   name             : "Yihao"
   avatar           : "profile.jpeg"
-  bio              : "CS PhD student in NTU"
+  bio              : "CS PhD Candidate in NTU"
   location         : "Singapore"
-  pubmed           : 
+  pubmed           :
   googlescholar    : "https://scholar.google.com/citations?user=68v21DIAAAAJ&hl=en"
   uri              :
   bitbucket        :
@@ -93,7 +93,7 @@ author:
   google_plus      :
   linkedin         :
   orcid            : "https://orcid.org/0000-0002-2393-1110"
-  stackoverflow    : 
+  stackoverflow    :
   twitter          : "randcogitation"
 
 # Reading Files
