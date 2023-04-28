@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 <br>
-I’m Yihao, a 3rd year PhD candidate in Nanyang Technological University, Singapore. I’ve done my undergraduate degrees (Business and Computer Science) in NTU as well, with specializations in Business Analytics, Data Science & Analytics and Artificial Intelligence.
+I’m Yihao, a 4th year PhD candidate in Nanyang Technological University, Singapore. I’ve done my undergraduate degrees (Business and Computer Science) in NTU as well, with specializations in Business Analytics, Data Science & Analytics and Artificial Intelligence.
 
 My research interests are within the intersection of Computer Science and Neuroscience, specifically Multiview Representation Learning and Multimodal Neuroimaging Analysis. My key interest is to contribute towards a better understanding of structure-function relationships in the human brain, for both normal function and various disease states.
 
@@ -16,6 +16,7 @@ A long term goal I have is to improve learning and memory in both humans and mac
 
 ## Recent Updates
 
+- **Oct 2022**: Presented our paper on SHRED (site-invariant biomarker discovery) at MICCAI 2022 (poster)
 - **June 2022**: Our paper on generating site-invariant disease biomarkers via data harmonisation and semi-supervised learning (SHRED) has been accepted (MICCAI 2022), see you there in Singapore! :)
 - **May 2022**: Our paper on combining multimodal neuroimaging data with multi-omics data (JOIN-GCLA) has been accepted by Frontiers in Neuroscience.
 - **Jan 2021**: Our Neurocomputing paper can be found [here](https://www.sciencedirect.com/science/article/abs/pii/S0925231221000977)
