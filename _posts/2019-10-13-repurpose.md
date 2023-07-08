@@ -37,7 +37,7 @@ I have a habit of disassembling my old/spoilt computers and sending everything e
 
     Here's how to [differentiate between them](https://www.reclaime.com/library/how-to-tell-ide-from-sata.aspx), basically SATA has a flatter connector while IDE has 2 rows of wire ends. The latter is much older (it's the 2006 one for mine!)
 
-    There's 2 types of SATA: 2.5 inch and 3.5 inch, the latter is generally older than the former (and mine was both 2.5 inch HDDs).
+    There are 2 types of SATA: 2.5 inch and 3.5 inch, the latter is generally older than the former (and mine was both 2.5 inch HDDs).
 
 2. Enclosure or Cable? 
 
