@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Lab 2</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/sunblind.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+		#qrtable td 
+		{
+			text-align: center; 
+			vertical-align: middle;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- Slide 0 -->
+				<section data-transition="none">
+
+					<h3>CX1115 Lab 2: Basic Statistics & dataviz</h3>
+
+					<a href="https://www.explainxkcd.com/wiki/index.php/2400:_Statistics"><img src="https://imgs.xkcd.com/comics/statistics_2x.png" width=450 height=555></img></a>
+
+					<aside class="notes">
+						// Self intro again
+						As usual, data is important! But we still need some knowledge about statistics. Here it's mainly for the purpose of data exploration.
+					</aside>
+
+				</section>
+
+				<!-- Slide 1 -->
+				<section data-transition="none">
+
+					<h3>Lab 1 Review</h3>
+
+					<ul>
+						<li>Data Science pipeline</li>
+						<li>Using Jupyter Notebooks, shortcuts, <em>JupyterLab</em></li>
+						<!-- Looking for open source libraries -->
+						
+						<br>
+
+						<li>Many data types: .csv, .txt., .xls, .json, .html (and <b>.data</b>, etc)</li>
+						<!-- Many others too, e.g. images, videos -->
+						<!-- Any kinds of extensions can be given, what matters is how the data in the file is stored. -->
+						<li>DataFrame attributes and functions ; .info() <b>vs</b> .describe()</li>
+						<!-- .shape, .dtypes ; .head(), .info()  -->
+						<li>Dangers of pd.read_csv(): <b>automatic inference</b> of data types</li>
+						<li>Overwrite <b>default params</b>: df.head(n=20); <br>pd.read_csv(data, index_col=0,header=None,sep='\t')</li>
+						<li><b>df.columns</b> to overwrite the column headers for the Olympic tables</li>
+						<!-- show what to google -->
+
+						<br>
+
+						<li>Web scraping: pd.read_html() and <em>beyond</em></li>
+						<li>Learn (how and what) to Google, try to remember basic syntax</li>
+					</ul>
+
+					<aside class="notes">
+						dtype={‘a’: np.float64, ‘b’: np.int32, ‘c’: ‘Int64’}
+
+						Quote char and delimiters
+					</aside>
+
+				</section>
+
+				<section data-transition="none" style="text-align: left;">
+
+					<h3>Overview 🗺️</h3>
+
+					(Business) Problem ↔ Data Acquisition ↔ <em>Data Cleaning</em> ↔ <b>Data Exploration / Visualisation</b> ↔ Modelling ↔ Reporting ↔ <em>Deployment</em>
+					<p>
+					(Not uni-directional, rather iterative in real-life settings)
+
+					<hr>
+
+					<ul class='fragment'>
+						<li>Purpose: familiarise yourself with the data, know which features might be relevant, prepare data for modeling</li>
+						<li>Keep the end goal of data analysis in mind (e.g. predict house prices)</li>
+						<li>If your mind is set on DS, your (personal) goal should be to have most of these attributes and functions at your fingertips</li>
+					</ul>
+
+					<p class="fragment">
+						Let's move to the Preparatory Notebooks and Discussion questions!
+					</p>
+					
+					<aside class="notes">
+						
+					</aside>
+
+				</section>
+
+				<!-- Slide 2:0 -->
+				<section data-transition="none">
+					<section data-transition="none">
+						
+					<h3>2 key learning points in Lab 2</h3>
+
+					<p></p>
+
+					<ol>
+						<li class=''>Plots for <b>numeric</b> variables and how to interpret them: <br> boxplot, hist, violin, joint, pair/scatter, heatmap</li>
+						<!-- <li class=''>Plots for <b>categorical</b> variables: catplot 🐱 (and dogplot 🐶) -->
+						<li class=''>Attributes and Functions for data exploration</li>
+					</ol>
+						
+					<aside class="notes">
+						<!-- Know that catplot is a higher level fn -->
+					</aside>
+
+					</section>
+
+					<!-- Slide 2:1 -->
+
+					<section data-transition="none" style="text-align: left;">
+
+						<h3>1. Some common viz mistakes </h3>
+
+						<p>
+						
+						<a href="http://web.cse.ohio-state.edu/~machiraju.1/teaching/CSE5544/ClassLectures/PDF/Lecture-1-2.pdf">A guide</a> on the limits of our visual system and how to not fall for traps.
+						<br>
+						(slide numbers in brackets)
+
+						<ul class=''>
+							
+							<li>Do not put graphs with different scales side by side or together (34)</li>
+							<li>Lengths are easier to compare than areas (48) </li> 
+							<li>Avoid 3D if the data isn't actually 3D (62-63)</li>
+							<li>Avoid chartjunk (64-69)</li>
+							<li>Small multiples are better than (uncontrollable) animations (97,98)</li>
+							<li>Do not use too many colors - follow convention ; different sets of colour for different data</li>
+
+						</ul>
+						</p>
+
+						<aside class="notes">
+						</aside>
+
+					</section>
+
+					<!-- Slide 2:2 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>2. Attributes and Functions <br>for data exploration</h3>
+
+							<!-- `.sort_values(by = "Name")`, <br> -->
+							`.corr()`, <br>
+							`.concat()`, `.index`, `.reindex()`, <br>
+							`.select_dtypes()`<br>
+							`.drop()`<br>
+							<!-- `.unique()`, `.value_counts()`, `.duplicated()`,<br> -->
+							<!-- `.dropna()`, `.isnull()`, <br>  -->
+							<!-- `.groupby()`, `.size()`, `.unstack()`, -->
+
+						<p></p>
+						
+						<ul class='fragment'>
+							<li>Series vs DataFrame</li>
+							<p>
+							<li>Pandas has some 'duplicated' functions: see <a href="https://www.datacamp.com/community/tutorials/pandas-idiomatic">this link</a> and <a href="https://medium.com/dunder-data/minimally-sufficient-pandas-a8e67f2a2428">this link</a>.</li>
+						</p>
+
+						<aside class="notes">
+						</aside>
+					
+					</section> 
+
+				</section> 
+
+				<section data-transition="none" data-background-color="rgb(19, 205, 229, 0.3)">
+					
+					<h1>Lab 2 Deliverables</h1>
+
+					None! Just make sure you go through the materials. :)
+
+					</section>
+
+				</section>
+
+				
+				<section data-transition="none" data-background-color="rgb(107, 255, 209, 0.3)", style="text-align: left;">
+					
+					<h3>Data Visualisation, in greater detail</h3>
+
+					Much more than just default plots from Seaborn.
+
+					<p>
+
+					Relevant at 2 stages of the pipeline: <b>exploration</b> and <b>reporting</b>
+
+					<ul>
+						<li>Know the alternatives available for different level of expertise: PowerBI (free), Tableau ; matplotlib / Seaborn / Plotly / Dash / ggplot (R) ; d3.js <a href="https://observablehq.com/@d3/gallery">gallery</a> and <a href="https://leanpub.com/d3-t-and-t-v4/read">tutorial</a></li>
+						<li>Choose colours wisely: <a href="https://blog.datawrapper.de/beautifulcolors/">basics</a>, <a href="https://colorbrewer2.org/">use palettes</a> or even <a href="http://vrl.cs.brown.edu/color">create your own</a></li>
+						<li>Which type of visualisation to use? <a href="https://datavizcatalogue.com/">Here's a guide</a> and <a href="https://github.com/ft-interactive/chart-doctor/tree/master/visual-vocabulary">here's another</a> and <a href="https://python-graph-gallery.com/">here's one with code in Python</a>.</li>
+						<li>A <a href="https://www.visualcinnamon.com/portfolio/">portal</a> to another world of data science: full time dataviz!</li>
+						<li>Here's <a href="https://canvas.ust.hk/courses/25881/pages/lecture-notes">a uni course</a> on data visualisation</li>
+					</ul>
+
+					<aside class="notes">
+						
+
+						When you know what to use to best show your findings, you also know what to use to explore your data effctively
+
+						Simple plots are easy to create; usually highly customizable but very time consuming for both Python and R
+					</aside>
+
+				</section>
+
+				
+				<section data-transition="none">
+
+					<h2>One more thing!</h2>
+					<!-- To get you started on the right footing! -->
+
+					Keep a concise set of notes - something that you can quickly read through days before an interview to recall what you’ve learnt
+					<p></p>
+
+					<ul>
+						<li class=''>Uni teaches you a lot, but knowledge has a short half-life</li>
+						<li class=''>Use spaced repetition: Read before class ; lecture = time to fill knowledge gaps + do tutorial during class (see direct link and application) + clear doubts immediately ; <b>condense notes</b> at the end of each week & sem ; test yourself before the next class (on the previous class' content) via simple recall questions</li>
+						<li class=''>Having a side project helps you to practice applying the concepts</li>
+						<li class=''>Weeks before internship application, practice interview questions</li>
+					</ul>
+				
+				</section>
+
+				<aside class="notes">
+						That's a lot to do - so just for mods that you're very interested / sure will be relevant for job/intern in the future
+
+						Condense notes: e.g. reorg to a Q&A format
+
+						Make sure you do it for data struct and algo
+				</aside>
+
+
+
+				<section data-transition="none">
+
+					<h1>References</h1>
+
+					This set of slides is made using <a href="https://revealjs.com/">reveal.js</a>. 
+					It's really easy to make a basic set of slides (just HTML) and you can consider using it for <b>simple</b> (tech) presentations!
+					For more advanced customization, you do need CSS and JS but scripts can be easily googled for and it has <a href="https://github.com/hakimel/reveal.js/">good documentation</a>.
+					
+					<p>
+
+					There are also more alternatives <a href="https://github.com/robbie-cao/awesome-slides">here</a>.
+					
+					<p>
+
+					<a href="https://xkcd.com/2400/">Slide 1 image</a> 
+					
+					<p>
+
+						<a href="https://yihao001.github.io/teaching/CX1115/lab2.html"><img src="/assets/img/CX1115/slides_lab2.png" width='150' height='150'></img></a>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// showNotes: false, // 'separate-page',
+				pdfSeparateFragments: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			// Reveal.configure({ showNotes: true });
+
+		</script>
+	</body>
+</html>
