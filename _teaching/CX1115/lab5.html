@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Lab 5</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/sunblind.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+		#qrtable td 
+		{
+			text-align: center; 
+			vertical-align: middle;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<div class="slides">
+
+				<!-- Slide 0 -->
+				<section data-transition="none">
+
+					<h3>CX1115 Lab 5: Classification Tree</h3>
+
+					<a href="https://www.explainxkcd.com/wiki/index.php/2048:_Curve-Fitting"><img src="https://www.explainxkcd.com/wiki/images/2/24/curve_fitting.png"></img></a>
+					<!--  -->
+					<br>
+					(How do you draw the plot for decision trees?)
+
+					<aside class="notes">
+						
+						In classification trees, we draw horizontal and vertical lines as decision boundaries.
+
+					</aside>
+
+				</section>
+
+				<!-- Slide 1 -->
+				<section data-transition="none">
+
+					<h3>Lab 4 Review!</h3>
+
+					<ol>
+						<li class=''>Split a dataset into train/test split via `train_test_split()`</li>
+
+							<br>
+
+						<li class=''>
+							
+							Build a linear regression model with sklearn, along with the Attributes and Functions for the model object: <br>
+								<b>Building</b> model: .fit(), <br>
+								<b>Checking</b> model: .intercept_, .coef_, <br>
+								<b>Using</b> model: .predict() <br>
+								<b>Analysing</b> model: .score(), mean_squared_error()
+						
+						</li>
+						
+					</ol>
+
+					<aside class="notes">
+
+						y  = ax + b + e
+						The e is very important, carries assumptions. 
+
+						Train, val, test.
+						Val is for tuning. 
+
+					</aside>
+
+				</section>
+
+				<section data-transition="none" style="text-align: left;">
+
+					<h3>Overview 🗺️</h3>
+
+					(Business) Problem ↔ Data Acquisition ↔ Data Cleaning ↔ Data Exploration / Visualisation ↔ <b>Modelling ↔ Reporting</b> ↔ <em>Deployment</em>
+
+					<hr>
+
+					<br>
+
+					<ul class='fragment'>
+
+						<li>After building some linear <b>regression</b> models, we're ready to build <b>classification</b> models!</li>
+
+						<br>
+
+						<li>Regression problems can be converted into Classification problems (e.g. predicting up/down instead of the precise closing stock price)</li>
+
+						<br>
+
+						<li>Generally, regression is a tougher problem. <br>Classification And Regression Tree (CART) can do both tasks.</li>
+
+					</ul>
+
+					<p>
+
+					<aside class="notes">
+
+						It's possible to build models to do both simultaneously. That's called multi-task learning. CART can also do both.
+
+					</aside>
+
+				</section>
+
+				<!-- Slide 2:0 -->
+				<section data-transition="none">
+
+					<section data-transition="none">
+						
+					<h3>2 key learning points in Lab 5</h3>
+
+					<br>
+
+					<ol>
+						<li class=''>SwarmPlot: like boxplot but can see actual data points <br>(but can't see quartiles)</li>
+
+							<br>
+
+						<li class=''>
+							
+							Build a <b>decision tree</b> with sklearn, along with the Attributes and Functions for the model object: <br>
+								<b>Building</b> model: .fit(), <br>
+								<b>Checking</b> model: <b>.plot_tree()</b><br>
+								<b>Using</b> model: .predict(), <b>.predict_proba()</b> <br>
+								<b>Analysing</b> model: .score(), <b>.confusion_matrix()</b>
+						
+						</li>
+						
+					</ol>
+						
+					<aside class="notes">
+
+						sklearn API is well designed - same functions for same action on different model objects
+
+						np.set_printoptions(precision = 3)
+
+					</aside>
+
+					</section>
+
+					<!-- Slide 2:1 -->
+
+					<section data-transition="none" style="text-align: left;">
+
+						<h3>1. How to use decision trees</h3>						
+
+						<p class=''>
+							"Decision Tree is a 'partition strategy' on the data to get probabilities."
+						<ul class='fragment'>
+							 <li>Refer to plot in class notes - we literally slice the axes into 2 parts with a <b>straight</b> line - what are the implications?</li>
+							 <li>1 node in tree = 1 split = 1 line in the plot; '<b>AND</b>' when go down tree; <br> left split == True with respect to condition in the node</li>
+							 <li>Most implementations offer only <b>binary splits</b> (not binary classification!) on <b>numeric</b> independent variables. <a href='https://stackoverflow.com/questions/38931245/why-the-decision-tree-structure-is-only-binary-tree-for-sklearn-decisiontreeclas'>Why?</a></li>
+							 <li><a href='https://stackoverflow.com/questions/42891148/changing-colors-for-decision-tree-plot-created-using-export-graphviz'>Another way</a> to plot your trees + arrows are actually <a href='https://stackoverflow.com/questions/62318367/decision-tree-edges-branches-so-light-that-are-invisible'>there</a>!</li> 
+						</ul>
+						</p>
+
+						<p class='fragment'>
+						Evaluation Metrics
+						<ul class='fragment'>
+							<li>Confused about confusion matrix? <a href='https://yihao001.github.io/posts/2020/05/confusion-matrices/'>Check this out</a></li>
+							<li>Accuracy = (TP + TN) / N, what happens if the dataset is imbalanced? Use TPR, TNR, F1, MCC... (precision, recall is confusing!)</li>
+					   </ul>
+						</p>
+						
+						<aside class="notes">
+
+							Implication: very fast, but only can learn simple linear boundaries.
+							1 DT alone is quite weak. But trees together, strong ;)  (e.g. random forest)
+
+							Why binary split? Multi-way is computationally expensive.
+
+							Why is the confusion matrix so biased? Why is FPR so high?
+							Is there any data pre-processing needed to fix the FPR bias?
+							Why are we choosing max_depth = 2 all the time? Change?
+							Is max_depth = 2 good enough for the multi-variate model?
+
+						</aside>
+
+					</section>
+
+					<!-- Slide 2:2 -->
+
+					<section data-transition="none" style="text-align: left;">
+						
+						<h3>2. How do decision trees work?</h3>
+
+						Goal is to get <b>pure</b> child nodes, i.e. only 1 class. Remove impurities.
+						
+						<p class='fragment'>
+
+							<b>Grow tree: </b> on train data
+
+							<ul class='fragment'>
+								<li>Which variable to choose & how to split the variable?<br>
+									Categorial, natural splits. If binary split, 1 category can be isolated.<br>
+									Numeric, <a href='https://datascience.stackexchange.com/questions/24339/how-is-a-splitting-point-chosen-for-continuous-variables-in-decision-trees'>sort all values</a> in dataset. Either use the value, or the middle of each pair of values. For both numeric and categorical, <b>try all combinations</b> (or random choice for speed) and compute impurity.<br>
+									Use Gini or Entropy to compute Information Gain. <a href='https://quantdare.com/decision-trees-gini-vs-entropy/'>Not much diff.</a>
+								</li>
+								<li>Stopping conditions: tree depth, number of samples left in nodes before/after split, min change in impurity</li>
+							</ul>
+
+						</p>
+						
+						<p class='fragment'>
+
+							<b>Prune tree</b>: complex trees might have overfitted, tune on val
+
+							<ul class='fragment'>
+							<li><a href='https://scikit-learn.org/stable/modules/tree.html#minimal-cost-complexity-pruning'>Apply penalty</a> on tree complexity (e.g. no of leaves), a form of regularisation such that the final tree is smaller</li>
+							</ul>
+
+						</p>
+
+						<aside class="notes">
+
+							val = validation set
+
+							All in all, DT can be trained very quickly (with sampling), very fast at classifying new data too and easy to interpret.
+							
+						</aside>
+						
+					</section>
+
+				</section> 
+
+				<section data-transition="none" data-background-color="rgb(19, 205, 229, 0.3)">
+					
+					<h1>Lab 5 Deliverables</h1>
+
+					Check the 'Assignments' tab in the <b>lab's course site</b> on NTULearn.
+
+					<p><br>
+
+					Remember to submit it within <b>48 hours</b> after the end of the Lab <br>
+					 (i.e. 18 Feb, 10.30am)
+
+				</section>
+
+				<section data-transition="none">
+
+					<h1>References</h1>
+
+					<a href="https://forms.gle/3MXKT9kGjjcgvSXC8"><img src="/assets/img/CX1115/survey_lab5.png" width='200' height='200'></img></a>
+					<br>
+					Survey for Lab 6! Please let me know what you want to be covered. :)
+					<p>
+					<hr>
+
+					This set of slides is made using <a href="https://revealjs.com/">reveal.js</a>. 
+					It's really easy to make a basic set of slides (just HTML) and you can consider using it for <b>simple</b> (tech) presentations!
+					For more advanced customization, you do need CSS and JS but scripts can be easily googled for and it has <a href="https://github.com/hakimel/reveal.js/">good documentation</a>.
+					
+					<p>
+
+					There are also more alternatives <a href="https://github.com/robbie-cao/awesome-slides">here</a>.
+					
+					<p>
+
+					<a href="https://xkcd.com/2311/">Slide 1 image</a> 					
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// showNotes: false, // 'separate-page',
+				pdfSeparateFragments: false,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			// Reveal.configure({ showNotes: true });
+
+		</script>
+	</body>
+</html>

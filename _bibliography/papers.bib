@@ -1,0 +1,180 @@
+---
+---
+
+@article{chan2024discovering,
+  title={Discovering robust biomarkers of neurological disorders from functional MRI using graph neural networks: A Review},
+  author={Chan, Yi Hao and Girish, Deepank and Gupta, Sukrit and Xia, Jing and Kasi, Chockalingam and He, Yinan and Wang, Conghao and Rajapakse, Jagath C},
+  journal={arXiv preprint arXiv:2405.00577},
+  year={2024},
+
+  abbr={Evaluation},
+  abstract={Graph neural networks (GNN) have emerged as a popular tool for modelling functional magnetic resonance imaging (fMRI) datasets. Many recent studies have reported significant improvements in disorder classification performance via more sophisticated GNN designs and highlighted salient features that could be potential biomarkers of the disorder. In this review, we provide an overview of how GNN and model explainability techniques have been applied on fMRI datasets for disorder prediction tasks, with a particular emphasis on the robustness of biomarkers produced for neurodegenerative diseases and neuropsychiatric disorders. We found that while most studies have performant models, salient features highlighted in these studies vary greatly across studies on the same disorder and little has been done to evaluate their robustness. To address these issues, we suggest establishing new standards that are based on objective evaluation metrics to determine the robustness of these potential biomarkers. We further highlight gaps in the existing literature and put together a prediction-attribution-evaluation framework that could set the foundations for future research on improving the robustness of potential biomarkers discovered via GNNs.},
+  arxiv={2405.00577},
+  bibtex_show={true},
+  preview={review.png},
+}
+
+@article{rajapakse2024two,
+  title={Two-stage approach to intracranial hemorrhage segmentation from head CT images},
+  author={Rajapakse, Jagath C and How, Chun Hung and Chan, Yi Hao and Hao, Luke Chin Peng and Padhi, Abhinandan and Adrakatti, Vivek and Khan, Iram and Lim, Tchoyoson},
+  journal={IEEE Access},
+  year={2024},
+  publisher={IEEE},
+
+  abbr={Segmentation},
+  abstract={Intracranial hemorrhage (ICH) is an emergency and a potentially life-threatening condition. Automated segmentation of ICH from head CT images can provide clinicians with volumetric measures that can be used for diagnosis and decision support for treatment procedures. Existing solutions typically involve training deep learning models to perform segmentation directly on the whole CT image. However, datasets with segmentation masks are typically very small in comparison with datasets with bounding boxes. Thus, we propose a two-stage approach that utilizes both bounding boxes and segmentation masks to help improve segmentation performance. In the first stage, ICH regions are detected and localized with bounding boxes surrounding the lesion by using a supervised YOLOv5 object detector. In the second stage, the localized ICH foreground is automatically segmented using TransDeepLab, an attention-based transformer network. Although we utilize both ground-truth bounding boxes and segmentation masks, different datasets can be used to train each stage. There is no requirement for pairing up bounding boxes and segmentation masks to train the model. Since bounding box annotations are available in larger quantities than segmentation masks, our approach allows these large datasets of bounding boxes to be used to improve ICH segmentation performance. On our dataset of segmentation masks, we demonstrated that our proposed two-stage YOLOv5+ TransDeepLab model outperformed segmentation methods such as SegResNet by 8% in terms of Dice score. Given ground truth bounding boxes, a Dice score of 0.769 is achieved, outperforming state-of-the-art methods such as nnU-Net. In sum, our proposed two-stage approach produces more accurate binary segmentation of ICH for neuroradiologists and these improved measurements could potentially aid their clinical decision-making process.},
+  bibtex_show={true},
+  html={https://link.springer.com/chapter/10.1007/978-3-031-16431-6_42},
+  preview={access.png},
+}
+
+@inproceedings{xia2024brain,
+  title={Brain Structure-Function Interaction Network for Fluid Cognition Prediction},
+  author={Xia, Jing and Chan, Yi Hao and Girish, Deepank and Rajapakse, Jagath C},
+  booktitle={ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1706--1710},
+  year={2024},
+  organization={IEEE},
+
+  abbr={Multimodal},
+  abstract={Predicting fluid cognition via neuroimaging data is essential for understanding the neural mechanisms underlying various complex cognitions in the human brain. Both brain functional connectivity (FC) and structural connectivity (SC) provide distinct neural mechanisms for fluid cognition. In addition, interactions between SC and FC within distributed association regions are related to improvements in fluid cognition. However, existing learning-based methods that leverage both modality-specific embeddings and high-order interactions between the two modalities for prediction are scarce. To tackle these challenges, this study proposes an end-to-end brain structure-function interaction network that incorporates both modality-specific embeddings and structure-function interactions to predict fluid cognition. In this model, we generate embeddings from both FC and SC separately using a graph convolution encoder-decoder module. Subsequently, we learn the interactive weights between corresponding regions of FC and SC, reflecting the coupling strength, by employing an interactive module on the embeddings of both modalities. A novel graph structure - utilizing modality-specific embeddings and interactive weights - is constructed and used for the final prediction. Experimental results demonstrate that our proposed method outperforms other state-of-the-art methods employed on uni-modal and multi-modal brain features. We further identify that strong structure-function coupling in the inferior frontal, postcentral, superior temporal and cingulate cortices are associated with fluid intelligence.},
+  additional_info={**(Oral)**},
+  bibtex_show={true},
+  html={https://ieeexplore.ieee.org/abstract/document/10448348},
+  preview={xj_icassp.gif},
+}
+
+@inproceedings{chan2024subtype,
+  title={Subtype-Specific Biomarkers of Alzheimer’s Disease from Anatomical and Functional Connectomes via Graph Neural Networks},
+  author={Chan, Yi Hao and Ang, Jun Liang and Gupta, Sukrit and He, Yinan and Rajapakse, Jagath C},
+  booktitle={ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={2195--2199},
+  year={2024},
+  organization={IEEE},
+
+  abbr={Biomarkers},
+  abstract={Heterogeneity is present in Alzheimer’s disease (AD), making it challenging to study. To address this, we propose a graph neural network (GNN) approach to identify disease subtypes from magnetic resonance imaging (MRI) and functional MRI (fMRI) scans. Subtypes are identified by encoding the patients’ scans in brain graphs (via cortical similarity networks) and clustering the representations learnt by the GNN. These subtyping information are used to construct population graphs for an ensemble of local networks, each producing intermediate predictions that are subsequently combined to produce the model’s final decision. Using MRI and fMRI scans from two datasets on AD, we demonstrate that our proposed architecture outperforms existing methods. Three subtypes of AD were identified and left cuneus was found to be a consistent class-wide biomarker. Subtype-specific biomarkers produced by our method further revealed deeper insights, including a unique subtype with significant degeneration in the left isthmus cingulate cortex.},
+  additional_info={**(Oral)**},
+  bibtex_show={true},
+  html={https://ieeexplore.ieee.org/abstract/document/10447054},
+  preview={subtype.gif},
+}
+
+@article{chan2023elucidating,
+  title={Elucidating salient site-specific functional connectivity features and site-invariant biomarkers in schizophrenia via deep neural networks},
+  author={Chan, Yi Hao and Yew, Wei Chee and Chew, Qian Hui and Sim, Kang and Rajapakse, Jagath C},
+  journal={Scientific Reports},
+  volume={13},
+  number={1},
+  pages={21047},
+  year={2023},
+  publisher={Nature Publishing Group UK London},
+
+  abbr={Biomarkers},
+  abstract={Schizophrenia is a highly heterogeneous disorder and salient functional connectivity (FC) features have been observed to vary across study sites, warranting the need for methods that can differentiate between site-invariant FC biomarkers and site-specific salient FC features. We propose a technique named Semi-supervised learning with data HaRmonisation via Encoder-Decoder-classifier (SHRED) to examine these features from resting state functional magnetic resonance imaging scans gathered from four sites. Our approach involves an encoder-decoder-classifier architecture that simultaneously performs data harmonisation and semi-supervised learning (SSL) to deal with site differences and labelling inconsistencies across sites respectively. The minimisation of reconstruction loss from SSL was shown to improve model performance even within small datasets whilst data harmonisation often led to lower model generalisability, which was unaffected using the SHRED technique. We show that our proposed model produces site-invariant biomarkers, most notably the connection between transverse temporal gyrus and paracentral lobule. Site-specific salient FC features were also elucidated, especially implicating the paracentral lobule for our local dataset. Our examination of these salient FC features demonstrates how site-specific features and site-invariant biomarkers can be differentiated, which can deepen our understanding of the neurobiology of schizophrenia.},
+  bibtex_show={true},
+  code={https://github.com/SCSE-Biomedical-Computing-Group/SHRED},
+  html={https://www.nature.com/articles/s41598-023-48548-w},
+  preview={shred3.png},
+}
+
+@article{zhang2023multi,
+  title={Multi-modal graph neural network for early diagnosis of Alzheimer's disease from sMRI and PET scans},
+  author={Zhang, Yanteng and He, Xiaohai and Chan, Yi Hao and Teng, Qizhi and Rajapakse, Jagath C},
+  journal={Computers in Biology and Medicine},
+  volume={164},
+  pages={107328},
+  year={2023},
+  publisher={Elsevier},
+
+  abbr={Multimodal},
+  abstract={In recent years, deep learning models have been applied to neuroimaging data for early diagnosis of Alzheimer's disease (AD). Structural magnetic resonance imaging (sMRI) and positron emission tomography (PET) images provide structural and functional information about the brain, respectively. Combining these features leads to improved performance than using a single modality alone in building predictive models for AD diagnosis. However, current multi-modal approaches in deep learning, based on sMRI and PET, are mostly limited to convolutional neural networks, which do not facilitate integration of both image and phenotypic information of subjects. We propose to use graph neural networks (GNN) that are designed to deal with problems in non-Euclidean domains. In this study, we demonstrate how brain networks are created from sMRI or PET images and can be used in a population graph framework that combines phenotypic information with imaging features of the brain networks. Then, we present a multi-modal GNN framework where each modality has its own branch of GNN and a technique that combines the multi-modal data at both the level of node vectors and adjacency matrices. Finally, we perform late fusion to combine the preliminary decisions made in each branch and produce a final prediction. As multi-modality data becomes available, multi-source and multi-modal is the trend of AD diagnosis. We conducted explorative experiments based on multi-modal imaging data combined with non-imaging phenotypic information for AD diagnosis and analyzed the impact of phenotypic information on diagnostic performance. Results from experiments demonstrated that our proposed multi-modal approach improves performance for AD diagnosis. Our study also provides technical reference and support the need for multivariate multi-modal diagnosis methods.},
+  bibtex_show={true},
+  html={https://www.sciencedirect.com/science/article/abs/pii/S001048252300793X},
+  preview={yt.jpg},
+
+}
+
+@inproceedings{chan2022semi,
+  title={Semi-supervised learning with data harmonisation for biomarker discovery from resting state fMRI},
+  author={Chan, Yi Hao and Yew, Wei Chee and Rajapakse, Jagath C},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={441--451},
+  year={2022},
+  organization={Springer},
+
+  abbr={Biomarkers},
+  abstract={Computational models often overfit on neuroimaging datasets (which are high-dimensional and consist of small sample sizes), resulting in poor inferences such as ungeneralisable biomarkers. One solution is to pool datasets (of similar disorders) from other sites to augment the small dataset, but such efforts have to handle variations introduced by site effects and inconsistent labelling. To overcome these issues, we propose an encoder-decoder-classifier architecture that combines semi-supervised learning with harmonisation of data across sites. The architecture is trained end-to-end via a novel multi-objective loss function. Using the architecture on multi-site fMRI datasets such as ADHD-200 and ABIDE, we obtained significant improvement on classification performance and showed how site-invariant biomarkers were disambiguated from site-specific ones. Our findings demonstrate the importance of accounting for both site effects and labelling inconsistencies when combining datasets from multiple sites to overcome the paucity of data. With the proliferation of neuroimaging research conducted on retrospectively aggregated datasets, our architecture offers a solution to handle site differences and labelling inconsistencies in such datasets. Code is available at https://github.com/SCSE-Biomedical-Computing-Group/SHRED.},
+  bibtex_show={true},
+  code={https://github.com/SCSE-Biomedical-Computing-Group/SHRED},
+  html={https://link.springer.com/chapter/10.1007/978-3-031-16431-6_42},
+  preview={shred.png},
+  selected={true},
+
+}
+
+@article{chan2022combining,
+  title={Combining neuroimaging and omics datasets for disease classification using graph neural networks},
+  author={Chan, Yi Hao and Wang, Conghao and Soh, Wei Kwek and Rajapakse, Jagath C},
+  journal={Frontiers in Neuroscience},
+  volume={16},
+  pages={866666},
+  year={2022},
+  publisher={Frontiers Media SA},
+
+  abbr={Multimodal},
+  abstract={Both neuroimaging and genomics datasets are often gathered for the detection of neurodegenerative diseases. Huge dimensionalities of neuroimaging data as well as omics data pose tremendous challenge for methods integrating multiple modalities. There are few existing solutions that can combine both multi-modal imaging and multi-omics datasets to derive neurological insights. We propose a deep neural network architecture that combines both structural and functional connectome data with multi-omics data for disease classification. A graph convolution layer is used to model functional magnetic resonance imaging (fMRI) and diffusion tensor imaging (DTI) data simultaneously to learn compact representations of the connectome. A separate set of graph convolution layers are then used to model multi-omics datasets, expressed in the form of population graphs, and combine them with latent representations of the connectome. An attention mechanism is used to fuse these outputs and provide insights on which omics data contributed most to the model's classification decision. We demonstrate our methods for Parkinson's disease (PD) classification by using datasets from the Parkinson's Progression Markers Initiative (PPMI). PD has been shown to be associated with changes in the human connectome and it is also known to be influenced by genetic factors. We combine DTI and fMRI data with multi-omics data from RNA Expression, Single Nucleotide Polymorphism (SNP), DNA Methylation and non-coding RNA experiments. A Matthew Correlation Coefficient of greater than 0.8 over many combinations of multi-modal imaging data and multi-omics data was achieved with our proposed architecture. To address the paucity of paired multi-modal imaging data and the problem of imbalanced data in the PPMI dataset, we compared the use of oversampling against using CycleGAN on structural and functional connectomes to generate missing imaging modalities. Furthermore, we performed ablation studies that offer insights into the importance of each imaging and omics modality for the prediction of PD. Analysis of the generated attention matrices revealed that DNA Methylation and SNP data were the most important omics modalities out of all the omics datasets considered. Our work motivates further research into imaging genetics and the creation of more multi-modal imaging and multi-omics datasets to study PD and other complex neurodegenerative diseases.},
+  bibtex_show={true},
+  html={https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.866666/full},
+  preview={join.png},
+}
+
+@article{gupta2021obtaining,
+  title={Obtaining leaner deep neural networks for decoding brain functional connectome in a single shot},
+  author={Gupta*, Sukrit and Chan*, Yi Hao and Rajapakse, Jagath C and Alzheimer’s Disease Neuroimaging Initiative and others},
+  journal={Neurocomputing},
+  volume={453},
+  pages={326--336},
+  year={2021},
+  publisher={Elsevier},
+
+  abbr={Biomarkers},
+  abstract={Neuroscientific knowledge points to the presence of redundancy in the correlations of the brain’s functional activity. These redundancies can be removed to mitigate the problem of overfitting when deep neural network (DNN) models are used to classify neuroimaging datasets. We propose an algorithm that removes insignificant nodes of DNNs in a layerwise manner and then adds a subset of correlated features in a single shot. When performing experiments with functional MRI datasets for classifying patients from healthy controls, we were able to obtain simpler and more generalizable DNNs. The obtained DNNs maintained a similar performance as the full network with only around 2% of the initial trainable parameters. Further, we used the trained network to identify salient brain regions and connections from functional connectome for multiple brain disorders. The identified biomarkers were found to closely correspond to previously known disease biomarkers. The proposed methods have cross-modal applications in obtaining leaner DNNs that seem to fit neuroimaging data better. The corresponding code is available at https://github.com/SCSE-Biomedical-Computing-Group/LEAN_CLIP.},
+  annotation={* Co-first authors},
+  bibtex_show={true},
+  code={https://github.com/SCSE-Biomedical-Computing-Group/LEAN_CLIP},
+  html={https://www.sciencedirect.com/science/article/abs/pii/S0925231221000977},
+  preview={lean.png},
+}
+
+@inproceedings{chan2020decoding,
+  title={Decoding task states by spotting salient patterns at time points and brain regions},
+  author={Chan, Yi Hao and Gupta, Sukrit and Kasun, LL Chamara and Rajapakse, Jagath C},
+  booktitle={Machine Learning in Clinical Neuroimaging and Radiogenomics in Neuro-oncology: Third International Workshop, MLCN 2020, and Second International Workshop, RNO-AI 2020, Held in Conjunction with MICCAI 2020, Lima, Peru, October 4--8, 2020, Proceedings 3},
+  pages={88--97},
+  year={2020},
+  organization={Springer},
+
+  abbr={Time Series},
+  abstract={During task performance, brain states change dynamically and can appear recurrently. Recently, recurrent neural networks (RNN) have been used for identifying functional signatures underlying such brain states from task functional Magnetic Resonance Imaging (fMRI) data. While RNNs only model temporal dependence between time points, brain task decoding needs to model temporal dependencies of the underlying brain states. Furthermore, as only a subset of brain regions are involved in task performance, it is important to consider subsets of brain regions for brain decoding. To address these issues, we present a customised neural network architecture, Salient Patterns Over Time and Space (SPOTS), which not only captures dependencies of brain states at different time points but also pays attention to key brain regions associated with the task. On language and motor task data gathered in the Human Connectome Project, SPOTS improves brain state prediction by 17% to 40% as compared to the baseline RNN model. By spotting salient spatio-temporal patterns, SPOTS is able to infer brain states even on small time windows of fMRI data, which the present state-of-the-art methods struggle with. This allows for quick identification of abnormal task-fMRI scans, leading to possible future applications in task-fMRI data quality assurance and disease detection. Code is available at https://github.com/SCSE-Biomedical-Computing-Group/SPOTS.},
+  bibtex_show={true},
+  code={https://github.com/SCSE-Biomedical-Computing-Group/SPOTS},
+  html={https://link.springer.com/chapter/10.1007/978-3-030-66843-3_9},
+  preview={spot.png},
+}
+
+@inproceedings{gupta2019decoding,
+  title={Decoding brain functional connectivity implicated in AD and MCI},
+  author={Gupta, Sukrit and Chan, Yi Hao and Rajapakse, Jagath C and Alzheimer’s Disease Neuroimaging Initiative},
+  booktitle={International conference on medical image computing and computer-assisted intervention},
+  pages={781--789},
+  year={2019},
+  organization={Springer},
+
+  abbr={Biomarkers},
+  abstract={Deep neural networks have been demonstrated to extract high level features from neuroimaging data when classifying brain states. Identifying salient features characterizing brain states further refines the focus of clinicians and allows design of better diagnostic systems. We demonstrate this while performing classification of resting-state functional magnetic resonance imaging (fMRI) scans of patients suffering from Alzheimer’s Disease (AD) and Mild Cognitive Impairment (MCI), and Cognitively Normal (CN) subjects from the Alzheimer’s Disease Neuroimaging Initiative (ADNI). We use a 5-layer feed-forward deep neural network (DNN) to derive relevance scores of input features and show that an empirically selected subset of features improves accuracy scores for patient classification. The common distinctive salient brain regions were in the uncus and medial temporal lobe which closely correspond with previous studies. The proposed methods have cross-modal applications with several neuropsychiatric disorders.},
+  additional_info={**(Oral)**},
+  bibtex_show={true},
+  html={https://link.springer.com/chapter/10.1007/978-3-030-66843-3_9},
+  preview={rfe.png},
+}
