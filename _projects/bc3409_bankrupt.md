@@ -64,7 +64,7 @@ Missing data limits the number of features we could use. This eventuated in 1362
 
 In terms of modelling, we used the original coefficients for Altman Z-score. For deep learning models, we experimented with an model architecture comprising 4 LSTM/GRU layers followed by a dense layer with sigmoid  activation function to perform the classification. 
 
-One key novelty is the approach used to address class imbalance. From preliminary explorations on the [Polish dataset](https://archive.ics.uci.edu/dataset/365/polish+companies+bankruptcy+data), we found that oversampling via SMOTE was not very effective. Thus, we created 2 sets of critera as a proxy for bankruptcy:
+One key novelty is the approach used to address class imbalance. From preliminary explorations on the [Polish dataset](https://archive.ics.uci.edu/dataset/365/polish+companies+bankruptcy+data), we found that oversampling via SMOTE was not very effective. Thus, we created 2 sets of criteria as a proxy for bankruptcy:
 
 1. Equity: Equity < 0, ROE < -50%
 2. Debt: Solvency ratio < 0.2, Debt-to-Equity ratio > 2
