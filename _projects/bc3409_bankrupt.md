@@ -34,7 +34,7 @@ where
 - X_4 = market cap / total liabilities,
 - X_5 = sales / total assets.
 
-The coefficients vary depends on the dataset used. For the above example, it was based on 66 companies (mainly in the manufacturing industry) with assets > $1 million (keep in mind that this was proposed in the 60s).  
+The coefficients vary depending on the dataset used. For the above example, it was based on 66 companies (mainly in the manufacturing industry) with assets > $1 million (keep in mind that this was proposed in the 60s).  
 
 In general, bankruptcy risk is higher if the z-score is low (< 1.8). However, it's more nuanced than a binary classification as a score above 3.0 suggests that bankruptcy is unlikely, while values between 1.8 and 3.0 are indeterminate.
 
@@ -45,7 +45,7 @@ Would a deep learning model work better than such traditional approaches? Intuit
 
 ## Methods
 
-We obtained our dataset from the [SimFin API](https://www.simfin.com/en/fundamental-data-download/). This comprised fundamentals from 2165 companies listed in the US (2009 to 2019). Out of these companies, 44 went through Chapter 7 or 11 bankrupticies during this time period. 
+We obtained our dataset from the [SimFin API](https://www.simfin.com/en/fundamental-data-download/). This comprised fundamentals from 2165 companies listed in the US (2009 to 2019). Out of these companies, 44 went through Chapter 7 or 11 bankruptcies during this time period. 
 
 Missing data limits the number of features we could use. This eventuated in 1362 companies being selected with complete data for the following 12 attributes:
 
@@ -62,7 +62,7 @@ Missing data limits the number of features we could use. This eventuated in 1362
 11.	EBIT / total assets
 12.	Book value of equity / total liabilities
 
-In terms of modelling, we used the original coefficients for Altman Z-score. For deep learning models, we experimented with an model architecture comprising 4 LSTM/GRU layers followed by a dense layer with sigmoid  activation function to perform the classification. 
+In terms of modelling, we used the original coefficients for Altman Z-score. For deep learning models, we experimented with a model architecture comprising 4 LSTM/GRU layers followed by a dense layer with sigmoid  activation function to perform the classification. 
 
 One key novelty is the approach used to address class imbalance. From preliminary explorations on the [Polish dataset](https://archive.ics.uci.edu/dataset/365/polish+companies+bankruptcy+data), we found that oversampling via SMOTE was not very effective. Thus, we created 2 sets of criteria as a proxy for bankruptcy:
 
@@ -73,13 +73,13 @@ Companies that fulfill either of these criteria were labelled as bankrupt for th
 
 ## Results
 
-For Altman Z-score, only 31 companies had enough data to compute the score. On these subset, 20/31 were correctly classified as bankruptcy, giving an accuracy of 64%. Notably, the Altman Z-score approach led to many false positive for the rest of the dataset (i.e. non-bankrupt companies), producing a precision of 0.03. On the other hand, the LSTM model was able to achieve an accuracy of 75% and the GRU model obtained an accuracy of 83%. 
+For Altman Z-score, only 31 companies had enough data to compute the score. On this subset, 20/31 were correctly classified as bankrupt, giving an accuracy of 64%. Notably, the Altman Z-score approach led to many false positives for the rest of the dataset (i.e. non-bankrupt companies), producing a precision of 0.03. On the other hand, the LSTM model was able to achieve an accuracy of 75% and the GRU model obtained an accuracy of 83%. 
 
 ## Future work
 
 Although the deep learning model performed better, it would have been fairer to re-fit the model used by Altman on more recent data that is representative of our SimFin dataset. 
 
-While classification accuracies seem quite high, it would have been more useful to predict bankruptcy before it happens, rather than our simplified approach of using data from the entire time series. The use of weak labels in our approach does help allieviate this issue, but it remains to be seen if the model could do better than such simple proxies in predicting future bankruptcies.
+While classification accuracies seem quite high, it would have been more useful to predict bankruptcy before it happens, rather than our simplified approach of using data from the entire time series. The use of weak labels in our approach does help alleviate this issue, but it remains to be seen if the model could do better than such simple proxies in predicting future bankruptcies.
 
 ## Learning points
 
