@@ -3,7 +3,7 @@ layout: distill
 title: Evaluating XAI algorithms
 date: 2024-07-13 15:30:11+0800
 description: Measuring robustness of explanations objectively
-tags: XAI
+tags: XAI, fmri, ml
 categories: acad
 related_posts: false
 
