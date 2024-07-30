@@ -81,6 +81,8 @@ This is the most crucial part of the data preparation process. All the datasets 
 4. Using `Jieba` to segment the Chinese characters
 5. Using `Jiagu` and Chinese `SenticNet` to score the Chinese portions
 
+More information about SenticNet can be found [here](https://sentic.net/senticnet-6.pdf).
+
 **Negation detection is critical for accurate labelling of polarity scores**. This is taken care of using a customised multi-lingual negation detection algorithm that considers (i) Not-negators (e.g. didn't, aren't), (ii) N-negators (e.g. never, few), (iii) Chinese negators (不, 没), (iv) cases with commas, (v) un-negators (e.g. but, yet).
 
 After the polarity scores are computed for each utterance, class labels are assigned based on an empirically derived threshold: polarity scores above 0.1 are labelled ‘positive’, scores below -0.1 are labelled ‘negative’ and the remaining scores are labelled ‘neutral’. The thresholds were arrived at by maximising the Cohen‘s kappa score (i.e. inter-rater reliability) between the assigned scores and human annotation of 300 sample utterances from the dataset.
@@ -89,7 +91,7 @@ With κ=0.61, the final dataset has 26,825 positive, 18,772 neutral and 17,517 n
 
 ## Results
 
-At this point, I've was left with little time to submit the project. Thus, the experiments done were more of a benchmarking analysis rather than creating novel architectures. 
+At this point, I was left with little time to submit the project. Thus, the experiments done were more of a benchmarking analysis rather than creating novel architectures. 
 
 2 main approaches were attempted: (i) baseline models involved an embedding layer, Bi-GRU layer followed by softmax ; these models were trained from scratch, (ii) pre-trained models which replaced the embedding layer from BERT (`uncased_L-12_H-768_A-12` was used for English, `chinese_L-12_H-768_A-12` was used for
 Chinese and `multi_cased_L-12_H-768_A-12` was used for Mixed).
@@ -124,4 +126,4 @@ I didn't get as much time as I wanted to develop the model, but some problems re
 
 ## Source code
 
-Data and code will be released soon! 
+This [repo](https://github.com/yihao001/singlish-polarity-detection) contains a subset of the most relevant data and code. Feel free to send me an email if you need more information / files for your project. :)
