@@ -23,6 +23,9 @@ tl;dr: We propose RE-CONFIRM, a framework for evaluating explanations produced b
 - Using this framework on 2 fMRI datasets, we found that the combination of GAT and GNNExplainer produced explanations that are relatively more robust than other combinations considered in our study. 
 - Future biomarker discovery studies (that are based on applying explainers to deep learning models) can use RE-CONFIRM to determine the robustness of their model's explanations.
 
+Edit: Here's is the [link](https://openreview.net/pdf?id=3kti62n63m) to our paper, which includes an additional set of experiments on top of those presented here. More details will be shared soon. :)
+
+
 ## Problem
 
 Numerous explainable AI algorithms have been developed and applied on biological datasets to derive potential biomarkers (i.e. salient features unique to a certain disorder/trait). While they can compute a score for each input feature to indicate its importance for the task (e.g. healthy subject vs patient with disorders), some studies have shown that these scores do not consistently produce explanations that are sensible for the task <d-cite key="adebayo2018sanity"></d-cite>.

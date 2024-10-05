@@ -28,6 +28,7 @@ A long term goal I have is to improve learning and memory in both humans and mac
 
 ## Recent Updates
 
+- **Sep 2024**: Our paper on evaluating the robustness of XAI algorithms for biomarker discovery from functional connectomes was accepted by IEEE BHI
 - **May 2024**: Uploaded a preprint on a review of fMRI biomarkers of neurological disorders discovered via GNN
 - **May 2024**: Our paper on learning modularity-guided structure-function interactions was accepted by MICCAI
 - **Apr 2024**: Presented our papers @ ICASSP 2024, held in Seoul (oral)
