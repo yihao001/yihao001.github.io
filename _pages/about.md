@@ -28,14 +28,17 @@ A long term goal I have is to improve learning and memory in both humans and mac
 
 ## Recent Updates
 
-- **Sep 2024**: Our paper on evaluating the robustness of XAI algorithms for biomarker discovery from functional connectomes was accepted by IEEE BHI
-- **May 2024**: Uploaded a preprint on a review of fMRI biomarkers of neurological disorders discovered via GNN
-- **May 2024**: Our paper on learning modularity-guided structure-function interactions was accepted by MICCAI
+- **Feb 2025**: Our paper on an interpretable GCN model that incorporate both modality specific and cross-modal interactions was accepted by the journal Medical Image Analysis
+- **Jan 2025**: 2 US patent applications on brain [lesion](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=68v21DIAAAAJ&sortby=pubdate&citation_for_view=68v21DIAAAAJ:roLk4NBRz8UC) and [tissue](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=68v21DIAAAAJ&sortby=pubdate&citation_for_view=68v21DIAAAAJ:0EnyYjriUFMC) segmentation submitted
+- **Dec 2024**: Our paper on decoding cross-modal interactions between sMRI and gene expression for Alzheimer's disease was accepted by ICASSP 
+- **Sep 2024**: Our paper on evaluating the robustness of XAI algorithms for biomarker discovery from functional connectomes was [accepted](https://openreview.net/forum?id=3kti62n63m) by IEEE BHI (poster)
+- **May 2024**: Uploaded a [preprint](https://arxiv.org/abs/2405.00577) on a review of fMRI biomarkers of psychiatric disorders discovered via GNN
+- **May 2024**: Our paper on learning modularity-guided structure-function interactions was [accepted](https://link.springer.com/chapter/10.1007/978-3-031-72117-5_44) by MICCAI
 - **Apr 2024**: Presented our papers @ ICASSP 2024, held in Seoul (oral)
 - **Apr 2024**: Our paper on a 2-stage approach to ICH segmentation was [accepted](https://ieeexplore.ieee.org/document/10507829/) by the journal IEEE Access
 - **Jan 2024**: 2 abstracts accepted @ ISMRM 2024
-  - Ensemble of GNNs for decoding dFC in ADHD (poster)
-  - Interpretable GNN for classification of Parkinson's disease using multimodal connectomes (oral)
+  - Ensemble of GNNs for decoding dFC in ADHD ([poster](https://archive.ismrm.org/2024/1961_4UWuoTPlj.html))
+  - Interpretable GNN for classification of Parkinson's disease using multimodal connectomes ([oral](https://archive.ismrm.org/2024/1004.html))
 - **Jan 2024**: 2 abstracts accepted @ OHBM 2024 
   - Analysing dFC biomarkers of ADHD subtypes (poster)
   - Structure-function interactions associated with fluid cognition via GNNExplainer (poster)
