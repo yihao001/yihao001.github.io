@@ -28,7 +28,7 @@ A long term goal I have is to improve learning and memory in both humans and mac
 
 ## Recent Updates
 
-- **Feb 2025**: Our paper on an interpretable GCN model that incorporate both modality specific and cross-modal interactions was accepted by the journal Medical Image Analysis
+- **Feb 2025**: Our paper on an interpretable GCN model that incorporates both modality specific and cross-modal interactions was accepted by the journal Medical Image Analysis
 - **Jan 2025**: 2 US patent applications on brain [lesion](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=68v21DIAAAAJ&sortby=pubdate&citation_for_view=68v21DIAAAAJ:roLk4NBRz8UC) and [tissue](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=68v21DIAAAAJ&sortby=pubdate&citation_for_view=68v21DIAAAAJ:0EnyYjriUFMC) segmentation submitted
 - **Dec 2024**: Our paper on decoding cross-modal interactions between sMRI and gene expression for Alzheimer's disease was accepted by ICASSP 
 - **Sep 2024**: Our paper on evaluating the robustness of XAI algorithms for biomarker discovery from functional connectomes was [accepted](https://openreview.net/forum?id=3kti62n63m) by IEEE BHI (poster)
