@@ -20,17 +20,17 @@ social: true # includes social icons at the bottom of the page
 
 I’m currently a postdoctoral fellow in the College of Computing and Data Science, Nanyang Technological University, Singapore. I’ve completed my undergraduate degrees (Business and Computing, with specialisations in Business Analytics, Data Science & Analytics, AI) and PhD (Computer Science, specifically in brain imaging, multimodal learning and explainable AI) in NTU as well.
 
-My research interests are within the intersection of **Machine Learning** and **Neuroscience**. Currently, my main research focus is on **Temporal Graph Interpretability**. Specifically, I am interested in modelling multimodal datasets of human brain activity to identify salient spatiotemporal patterns, improving our understanding of structure-function relationships (especially in disorder states).
+My research interests are within the intersection of **Machine Learning** and **Neuroscience**. Currently, I'm focused on **Temporal Graph Interpretability**. Specifically, I am interested in modelling multimodal datasets of human brain activity to identify salient spatiotemporal patterns, improving our understanding of structure-function relationships (in disorder states).
 
-A long term goal I have is to improve learning and memory in both humans and machines, in the process understanding how we can better treat learning and neurodevelopmental disorders, as well as atypical neurodegeneration. Outside of my research, I have an interest in developing DS/AI solutions unique to SG and applying temporal graphs to other domains (e.g. quantitative finance). 
+A long term goal I have is to improve learning and memory in both humans and machines, in the process understanding how we can better treat learning and neurodevelopmental disorders, as well as atypical neurodegeneration. Outside of research, I am interested in developing DS/AI solutions unique to SG and applying temporal graphs to other domains (e.g. quantitative finance). 
 
 ---
 
 ## Recent Updates
 
-- **Feb 2025**: Our paper on an interpretable GCN model that incorporates both modality specific and cross-modal interactions was accepted by the journal Medical Image Analysis
+- **Feb 2025**: Our paper on an interpretable GCN model that incorporates both modality specific and cross-modal interactions was [accepted](https://www.sciencedirect.com/science/article/abs/pii/S136184152500057X) by the journal Medical Image Analysis
 - **Jan 2025**: 2 US patent applications on brain [lesion](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=68v21DIAAAAJ&sortby=pubdate&citation_for_view=68v21DIAAAAJ:roLk4NBRz8UC) and [tissue](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=68v21DIAAAAJ&sortby=pubdate&citation_for_view=68v21DIAAAAJ:0EnyYjriUFMC) segmentation submitted
-- **Dec 2024**: Our paper on decoding cross-modal interactions between sMRI and gene expression for Alzheimer's disease was accepted by ICASSP 
+- **Dec 2024**: Our paper on decoding cross-modal interactions between sMRI and gene expression for Alzheimer's disease was [accepted](https://ieeexplore.ieee.org/abstract/document/10888440) by ICASSP 
 - **Sep 2024**: Our paper on evaluating the robustness of XAI algorithms for biomarker discovery from functional connectomes was [accepted](https://openreview.net/forum?id=3kti62n63m) by IEEE BHI (poster)
 - **May 2024**: Uploaded a [preprint](https://arxiv.org/abs/2405.00577) on a review of fMRI biomarkers of psychiatric disorders discovered via GNN
 - **May 2024**: Our paper on learning modularity-guided structure-function interactions was [accepted](https://link.springer.com/chapter/10.1007/978-3-031-72117-5_44) by MICCAI
