@@ -1,18 +1,116 @@
 ---
 ---
 
-@article{chan2024discovering,
-  title={Discovering robust biomarkers of neurological disorders from functional MRI using graph neural networks: A Review},
+@article{chan2025discovering,
+  title={Discovering robust biomarkers of psychiatric disorders from resting-state functional MRI via graph neural networks: A systematic review},
   author={Chan, Yi Hao and Girish, Deepank and Gupta, Sukrit and Xia, Jing and Kasi, Chockalingam and He, Yinan and Wang, Conghao and Rajapakse, Jagath C},
-  journal={arXiv preprint arXiv:2405.00577},
-  year={2024},
+  journal={Neuroimage},
+  year={2025},
 
   abbr={Evaluation},
-  abstract={Graph neural networks (GNN) have emerged as a popular tool for modelling functional magnetic resonance imaging (fMRI) datasets. Many recent studies have reported significant improvements in disorder classification performance via more sophisticated GNN designs and highlighted salient features that could be potential biomarkers of the disorder. In this review, we provide an overview of how GNN and model explainability techniques have been applied on fMRI datasets for disorder prediction tasks, with a particular emphasis on the robustness of biomarkers produced for neurodegenerative diseases and neuropsychiatric disorders. We found that while most studies have performant models, salient features highlighted in these studies vary greatly across studies on the same disorder and little has been done to evaluate their robustness. To address these issues, we suggest establishing new standards that are based on objective evaluation metrics to determine the robustness of these potential biomarkers. We further highlight gaps in the existing literature and put together a prediction-attribution-evaluation framework that could set the foundations for future research on improving the robustness of potential biomarkers discovered via GNNs.},
-  arxiv={2405.00577},
+  abstract={Graph neural networks (GNN) have emerged as a popular tool for modeling functional magnetic resonance imaging (fMRI) datasets. Many recent studies have reported significant improvements in disorder classification performance via more sophisticated GNN designs and highlighted salient features that could be potential biomarkers of the disorder. However, existing methods of evaluating their robustness are often limited to cross-referencing with existing literature, which is a subjective and inconsistent process. In this review, we provide an overview of how GNN and model explainability techniques (specifically, feature attributors) have been applied to fMRI datasets for disorder prediction tasks, with an emphasis on evaluating the robustness of potential biomarkers produced by these feature attributors for psychiatric disorders. Then, 65 studies using GNNs that reported potential fMRI biomarkers for psychiatric disorders (attention-deficit hyperactivity disorder, autism spectrum disorder, major depressive disorder, schizophrenia) published before 9 October 2024 were identified from 2 online databases (Scopus, PubMed). We found that while most studies have performant models, salient features highlighted in these studies (as determined by feature attribution scores) vary greatly across studies on the same disorder. Reproducibility of biomarkers is only limited to a small subset at the level of regions and few transdiagnostic biomarkers were identified. To address these issues, we suggest establishing new standards that are based on objective evaluation metrics to determine the robustness of these potential biomarkers. We further highlight gaps in the existing literature and put together a prediction–attribution–evaluation framework that could set the foundations for future research on discovering robust biomarkers of psychiatric disorders via GNNs.},
   bibtex_show={true},
+  html={https://www.sciencedirect.com/science/article/pii/S1053811925004252}
   preview={review.png},
 }
+
+@article{xia2025disentangling,
+  title={Meta-analysis Guided Multi-task Graph Transformer Network for Diagnosis of Neurological Disease and Cognitive Deficits},
+  author={Xia, Jing and Chan, Yi Hao and Rajapakse, Jagath C},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  year={2025},
+
+  abbr={Biomarkers},
+  abstract={Neurological diseases, such as schizophrenia and attention deficit hyperactivity disorder (ADHD), alter functional connectivity (FC) and are often accompanied by cognitive deficits. Leveraging shared neural mechanisms underlying both neurological disease and cognitive deficits can enhance diagnostic accuracy. However, due to the complex neural mechanisms of these conditions, diagnosing them based on FC alone still presents challenges in terms of accuracy and biomarker reliability. To address these challenges, we designed a meta-analysis guided multi-task graph transformer network to simultaneously predict neurological disease and cognitive deficits and examine alterations in brain FC associated with these conditions. The framework employs a graph transformer method as the encoder and integrates a joint attention mechanism to capture shared disease–cognition features while utilizing saliency pooling to extract saliency weights for each task. To enhance the reliability of saliency weights, we incorporate meta-analysis guidance that aggregates data from 470 functional studies in the BrainMap database. Then, we establish reference probability maps for brain activations associated with neurological diseases and cognitive deficits using a Naive Bayes classifier. The saliency weights learned from saliency pooling are then constrained to align with these references using Pearson correlation. Experiments on the COBRE and ADHD-200 datasets indicate that our proposed method outperforms state-of-the-art multi-task learning models in classifying schizophrenia and ADHD, as well as in predicting their related cognitive deficits. Moreover, the biomarkers extracted from our models exhibit biologically meaningful patterns.},
+  bibtex_show={true},
+  html={https://link.springer.com/chapter/10.1007/978-3-032-05162-2_44},
+  preview={mag-mt.png},
+}
+
+@article{xia2025disentangling,
+  title={Disentangling shared and unique brain functional changes associated with clinical severity and cognitive phenotypes in schizophrenia via deep learning},
+  author={Xia, Jing and Chan, Yi Hao and Girish, Deepank and Chew, Qian Hui and Sim, Kang and Rajapakse, Jagath C},
+  journal={Communications Biology},
+  volume={8},
+  number={1},
+  pages={1215},
+  year={2025},
+  publisher={Nature Publishing Group UK London},
+
+  abbr={Biomarkers},
+  abstract={Individuals with schizophrenia experience significant cognitive impairments and alterations in brain function. However, the shared and unique brain functional patterns underlying cognition deficits and symptom severity in schizophrenia remain poorly understood. We design an interpretable graph-based multi-task deep learning framework to enhance the simultaneous prediction of schizophrenia illness severity and cognitive functioning measurements by using functional connectivity, and identify both shared and unique brain patterns associated with these phenotypes on 378 subjects from three datasets. Our framework outperforms both single-task and state-of-the-art multi-task learning methods in predicting four Positive and Negative Syndrome Scale (PANSS) subscales and four cognitive domain scores. The performance is replicable across three datasets, and the shared and unique functional changes are confirmed by meta-analysis at both regional and modular levels. Our study provides insights into the neural correlates of illness severity and cognitive implications, offering potential targets for further evaluations of treatment effects and longitudinal follow-up.},
+  bibtex_show={true},
+  html={https://www.nature.com/articles/s42003-025-08637-0},
+  preview={shared_unique.png},
+}
+
+@article{xia2025interpretable,
+  title={Interpretable modality-specific and interactive graph convolutional network on brain functional and structural connectomes},
+  author={Xia, Jing and Chan, Yi Hao and Girish, Deepank and Rajapakse, Jagath C},
+  journal={Medical Image Analysis},
+  volume={102},
+  pages={103509},
+  year={2025},
+  publisher={Elsevier},
+
+  abbr={Multimodal},
+  abstract={Both brain functional connectivity (FC) and structural connectivity (SC) provide distinct neural mechanisms for cognition and neurological disease. In addition, interactions between SC and FC within distributed association regions are related to alterations in cognition or neurological diseases, considering the inherent linkage between neural function and structure. However, there is a scarcity of existing learning-based methods that leverage both modality-specific characteristics and high-order interactions between the two modalities for regression or classification. Hence, this study proposes an interpretable modality-specific and interactive graph convolutional network (MS-Inter-GCN) that incorporates modality-specific information, reflecting the unique neural mechanism for each modality, and structure–function interactions, capturing the underlying foundation provided by white-matter fiber tracts for high-level brain function. In MS-Inter-GCN, we generate modality-specific task-relevant embeddings separately from both FC and SC using a graph convolutional encoder–decoder module. Subsequently, we learn the interactive weights between corresponding regions of FC and SC, reflecting the coupling strength, by employing an interactive module on the embeddings of both modalities. A novel graph structure is constructed, which uses modality-specific task-relevant embeddings and inserts the interactive weights as edges connecting corresponding regions of two modalities, and then is used for the regression or classification task. Finally, a post-hoc explainable technology - GNNExplainer- is used to identify salient regions and connections of each modality as well as salient interactions between FC and SC associated with tasks. We apply the proposed framework to fluid cognition prediction, Parkinson’s disease (PD), Alzheimer’s disease (AD), and schizophrenia (SZ) classification. Experimental results demonstrate that our method outperforms the other ten state-of-the-art methods on multi-modal brain features on all tasks. The GNNExplainer identifies salient structural and functional regions and connections for fluid cognition, PD, AD, and SZ. It confirms that strong structure–function coupling within the executive and control networks, combined with weak coupling within the motor network, is associated with fluid cognition. Moreover, structure–function decoupling in specific brain regions serves as a marker for different diseases: decoupling of the prefrontal, superior parietal, and superior occipital cortices is a marker of PD; decoupling of the middle frontal and lateral parietal cortices, temporal pole, and subcortical regions is indicative of AD; and decoupling of the prefrontal, parietal, and temporal cortices, as well as the cerebellum, contributes to SZ.},
+  bibtex_show={true},
+  html={https://www.sciencedirect.com/science/article/abs/pii/S136184152500057X},
+  preview={MS-Inter-GCN.jpg},
+
+}
+
+
+@inproceedings{niwarthana2025decoding,
+  title={Decoding Brain Structure and Gene Expression Interactions in Alzheimer’s Disease Pathology},
+  author={Niwarthana, Amashi and Kasi, Chockalingam and Chan, Yi Hao and Wang, Conghao and Rajapakse, Jagath C},
+  booktitle={ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={1--5},
+  year={2025},
+  organization={IEEE},
+
+  abbr={Multimodal},
+  abstract={Although brain imaging has provided crucial insights into Alzheimer’s disease (AD) progression, its limitations in capturing molecular changes have motivated the need to integrate and interpret transcriptomic data, which can reveal early-stage molecular disruptions. By interpreting both structural and gene expression patterns, there is potential to gain a more comprehensive understanding of the disease and identify interactions that drive AD pathogenesis. This study introduces a novel deep learning framework that integrates structural magnetic resonance imaging (sMRI) and gene expression (GE) data for AD prediction. The model extracts features from both data modalities and employs a novel approach to quantify cross-modal interactions. Our multimodal architecture achieves 83.6% accuracy in AD prediction, demonstrating its effectiveness in combining imaging and transcriptomic data. We present a technique for interpreting interactions between specific brain regions and gene expression patterns, providing insights into their joint contribution to AD risk. This approach enables the identification of both established and potential new AD biomarkers, spanning structural brain changes and transcriptomic alterations. By offering a deeper understanding of AD’s molecular and structural aspects, our work advances the field of multimodal biomarker discovery in neurodegenerative diseases and paves the way for more comprehensive early diagnosis strategies.
+  },
+  bibtex_show={true},
+  html={https://ieeexplore.ieee.org/document/10888440},
+  preview={tca.gif},
+}
+
+
+
+@inproceedings{girish2024robustness,
+  title={Robustness of explainable AI algorithms for disease biomarker discovery from functional connectivity datasets},
+  author={Girish, Deepank and Chan, Yi Hao and Gupta, Sukrit and Xia, Jing and Rajapakse, Jagath C},
+  booktitle={2024 IEEE EMBS International Conference on Biomedical and Health Informatics (BHI)},
+  pages={1--8},
+  year={2024},
+  organization={IEEE},
+
+  abbr={Evaluation},
+  abstract={Machine learning (ML) models have been used in functional neuroimaging for wide-ranging tasks, ranging from disease diagnosis to disease prognosis. There have been successive functional connectivity-based ML studies focused on improving model performances for disease detection. An increasing number of such studies use their trained models to detect and evaluate salient features that could be potential biomarkers of these neuro-logical conditions. The evaluation of these salient features is often qualitative and limited to cross-referencing existing literature for similar findings. In this study, we present objective quantitative metrics to evaluate the robustness of these salient features. Building upon existing generic evaluation metrics, we propose metrics that capture topological properties known to be characteristic of brain functional connectomes. Using existing and newly proposed measures on a set of baselines and state-of-the-art graph neural networks (GNN) models, we found that when GNNExplainer is used with models that incorporate attention, the scores produced are relatively more robust than other combinations. On datasets of patients with Autism Spectrum Disorder (ASD) or Attention-deficit Hyperactivity Disorder (ADHD), our proposed metrics highlighted that salient features identified in both disorders are highly involved in functional specialization, while salient ASD features expressed stronger functional integration than ADHD. We package these existing and novel metrics together in the RE-CONFIRM framework that holds promise to set the foundations for the quantitative evaluation of salient features detected by future studies.},
+  bibtex_show={true},
+  html={https://ieeexplore.ieee.org/document/10913640},
+  preview={reconfirm.png},
+
+}
+
+@inproceedings{xia2024img,
+  title={IMG-GCN: Interpretable modularity-guided structure-function interactions learning for brain cognition and disorder analysis},
+  author={Xia, Jing and Chan, Yi Hao and Girish, Deepank and Rajapakse, Jagath C},
+  booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
+  pages={470--480},
+  year={2024},
+  organization={Springer},
+
+  abbr={Multimodal},
+  abstract={Brain structure-function interaction is crucial for cognition and brain disorder analysis, and it is inherently more complex than a simple region-to-region coupling. It exhibits homogeneity at the modular level, with regions of interest (ROIs) within the same module showing more similar neural mechanisms than those across modules. Leveraging modular-level guidance to capture complex structure-function interactions is essential, but such studies are still scarce. Therefore, we propose an interpretable modularity-guided graph convolution network (IMG-GCN) to extract the structure-function interactions across ROIs and highlight the most discriminative interactions relevant to fluid cognition and Parkinson’s disease (PD). Specifically, we design a modularity-guided interactive network that defines modularity-specific convolution operation to learn interactions between structural and functional ROIs according to modular homogeneity. Then, an MLP-based attention model is introduced to identify the most contributed interactions. The interactions are inserted as edges linking structural and functional ROIs to construct a unified combined graph, and GCN is applied for final tasks. Experiments on HCP and PPMI datasets indicate that our proposed method outperforms state-of-the-art multi-model methods in fluid cognition prediction and PD classification. The attention maps reveal that the frontoparietal and default mode structures interacting with visual function are discriminative for fluid cognition, while the subcortical structures interacting with widespread functional modules are associated with PD.},
+  bibtex_show={true},
+  html={https://link.springer.com/chapter/10.1007/978-3-031-72117-5_44},
+  preview={imggcn.png},
+}
+
 
 @article{rajapakse2024two,
   title={Two-stage approach to intracranial hemorrhage segmentation from head CT images},
