@@ -157,6 +157,6 @@ instead of the model’s predictions) <d-cite key="amara2022graphframex"></d-cit
 
 ## Code
 
-Our code repository will be released soon! 
+Our code repository is available [here](https://github.com/deepank002/RE-CONFIRM).
 
 We hope that RE-CONFIRM will serve as the first step towards a standard for quantitative evaluation of salient features detected by future studies.
