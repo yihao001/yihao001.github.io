@@ -18,8 +18,6 @@ profile:
 social: true # includes social icons at the bottom of the page
 ---
 
-I’m currently a postdoctoral fellow in the College of Computing and Data Science, Nanyang Technological University, Singapore. I’ve completed my undergraduate degrees (Business and Computing, with specialisations in Business Analytics, Data Science & Analytics, AI) and PhD (Computer Science, specifically in brain imaging, multimodal learning and explainable AI) in NTU as well.
-
 My research interests are within the intersection of **Machine Learning** and **Neuroscience**. Currently, I'm focused on **Temporal Graph Interpretability**. Specifically, I am interested in modelling multimodal datasets of human brain activity to identify salient spatiotemporal patterns, improving our understanding of structure-function relationships (in disorder states).
 
 A long term goal I have is to improve learning and memory in both humans and machines, in the process understanding how we can better treat learning and neurodevelopmental disorders, as well as atypical neurodegeneration. Outside of research, I am interested in developing DS/AI solutions unique to SG and applying temporal graphs to other domains (e.g. quantitative finance). 
@@ -28,6 +26,8 @@ A long term goal I have is to improve learning and memory in both humans and mac
 
 ## Recent Updates
 
+- **Sep 2026**: Our paper on using LLMs to encode meta-analysis priors for neurological disorder prediction tasks was [accepted](https://www.sciencedirect.com/science/article/abs/pii/S1361841526003907) by the journal Medical Image Analysis
+- **May 2026**: Our paper on decoupling age effects from pathology in Schizophrenia was [accepted](https://papers.miccai.org/miccai-2026/paper/1376_paper.pdf) by MICCAI (**early accept**)
 - **Apr 2026**: Uploaded a [preprint](https://arxiv.org/abs/2604.22018) of our paper on evaluating and improving the robustness of dynamic FC biomarkers dervied from brain foundation models. 
 - **Apr 2026**: Our paper on a modularity-guided GNN for learning structure-function interactions was [accepted](https://www.sciencedirect.com/science/article/abs/pii/S1566253526003052) by the journal Information Fusion.
 - **Feb 2026**: Our paper on a hub-sensitive Mamba + GNN architecture for ADHD diagnosis from dynamic functional connectivity was [accepted](https://ieeexplore.ieee.org/document/11399873/) by the Journal of Biomedical and Health Informatics (JBHI)
