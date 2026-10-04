@@ -20,7 +20,7 @@ social: true # includes social icons at the bottom of the page
 
 My research interests are within the intersection of **Machine Learning** and **Neuroscience**. Currently, I'm focused on **Temporal Graph Interpretability**. Specifically, I am interested in modelling multimodal datasets of human brain activity to identify salient spatiotemporal patterns, improving our understanding of structure-function relationships (in disorder states).
 
-A long term goal I have is to improve learning and memory in both humans and machines, in the process understanding how we can better treat learning and neurodevelopmental disorders, as well as atypical neurodegeneration. Outside of research, I am interested in developing DS/AI solutions unique to SG and applying temporal graphs to other domains (e.g. quantitative finance). 
+A long term goal I have is to improve learning and memory in both humans and machines, in the process understanding how we can better treat learning and neurodevelopmental disorders, as well as atypical neurodegeneration. Outside of research, I am interested in developing DS/AI solutions [unique to SG](https://yihao001.github.io/eclectic/) and applying temporal graphs to other domains (e.g. quantitative finance). 
 
 ---
 
